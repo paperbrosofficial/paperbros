@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Bros - O Level Topical Past Papers</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        retro: {
+                            paper: '#F6F2EB',
+                            card: '#EFEAE1',
+                            dark: '#1C1917',
+                            orange: '#F97316',
+                            green: '#10B981',
+                            blue: '#3B82F6',
+                            magenta: '#BE185D',
+                            cream: '#FFFBEB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .halftone-bg {
+            background-image: radial-gradient(#1c1917 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        .paper-card {
+            box-shadow: 4px 4px 0px #1C1917;
+            transition: all 0.2s ease;
+        }
+        .paper-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1C1917;
+        }
+        .btn-retro {
+            box-shadow: 3px 3px 0px #1C1917;
+            transition: all 0.15s ease;
+        }
+        .btn-retro:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #1C1917;
+        }
+        .btn-retro:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #1C1917;
+        }
+    </style>
+</head>
+<body class="bg-retro-paper text-retro-dark font-sans selection:bg-retro-orange selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-retro-dark text-retro-paper text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        Cash on Delivery Available Across Bangladesh! Free Shipping on Orders Over 2,500 BDT!
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-retro-paper/95 backdrop-blur border-b-2 border-retro-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-display font-black text-xl group-hover:rotate-12 transition-transform shadow-[2px_2px_0px_#1C1917] overflow-hidden">
+                    <img src="logo.jpg" alt="PB" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="font-display font-black text-2xl tracking-tighter uppercase">Paper Bros</span>
+                    <span class="block text-[10px] tracking-widest font-bold uppercase text-stone-600">O Level Topical Past Papers</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4 sm:gap-6">
+                <nav class="hidden md:flex items-center gap-6 font-semibold text-sm">
+                    <a href="#catalog" class="hover:text-retro-orange transition-colors">All Books</a>
+                    <a href="#subjects" class="hover:text-retro-orange transition-colors">Subjects</a>
+                    <a href="#about" class="hover:text-retro-orange transition-colors">Why Paper Bros</a>
+                </nav>
+
+                <button onclick="toggleCart()" class="relative bg-retro-cream border-2 border-retro-dark px-4 py-2 rounded-xl font-bold flex items-center gap-2 btn-retro">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">Cart</span>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-retro-magenta text-white text-xs w-6 h-6 rounded-full border-2 border-retro-dark flex items-center justify-center font-black">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden border-b-2 border-retro-dark bg-retro-card py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-block bg-retro-orange text-white border-2 border-retro-dark px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider rotate-[-1deg] shadow-[2px_2px_0px_#1C1917]">
+                    The Ultimate Exam Weapon
+                </div>
+                <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-none uppercase">
+                    A One Stop Solution For Your <span class="text-retro-orange underline decoration-retro-dark decoration-4">Exams</span>
+                </h1>
+                <p class="text-stone-700 text-lg sm:text-xl font-medium max-w-xl">
+                    Master your Cambridge O Level examinations with meticulously curated topical past papers featuring step-by-step solved answers, marking scheme hints, and comprehensive topic breakdowns from 2013 onwards.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#catalog" class="bg-retro-dark text-retro-paper px-6 py-3.5 rounded-xl font-bold border-2 border-retro-dark btn-retro flex items-center gap-2 text-base">
+                        <span>Browse Books</span>
+                        <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#about" class="bg-retro-paper text-retro-dark px-6 py-3.5 rounded-xl font-bold border-2 border-retro-dark btn-retro flex items-center gap-2 text-base">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="bg-amber-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square">
+                    <div class="w-12 h-12 rounded-full bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="BIO" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Biology 5090</h3>
+                        <p class="text-xs text-stone-600 mt-1">Paper 1 & Paper 2 Available</p>
+                    </div>
+                </div>
+                <div class="bg-emerald-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square mt-6">
+                    <div class="w-12 h-12 rounded-full bg-retro-green border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="PHY" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Physics 5054</h3>
+                        <p class="text-xs text-stone-600 mt-1">Paper 1 & Paper 2 Available</p>
+                    </div>
+                </div>
+                <div class="bg-sky-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square -mt-6">
+                    <div class="w-12 h-12 rounded-full bg-retro-blue border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="CHEM" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Chemistry 5070</h3>
+                        <p class="text-xs text-stone-600 mt-1">Paper 1 & Paper 2 Available</p>
+                    </div>
+                </div>
+                <div class="bg-rose-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square">
+                    <div class="w-12 h-12 rounded-full bg-retro-magenta border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="MATH" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Maths D 4024</h3>
+                        <p class="text-xs text-stone-600 mt-1">Paper 1 & Paper 2 Available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Catalog -->
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+            <div>
+                <span class="text-xs font-black uppercase tracking-widest text-retro-orange bg-orange-100 px-3 py-1 rounded border border-retro-dark">Product Catalog</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl tracking-tight uppercase mt-2">Topical Past Paper Books</h2>
+                <p class="text-stone-600 mt-1">Select your subject and paper to view details, reviews, and add to cart.</p>
+            </div>
+
+            <!-- Subject Filters -->
+            <div id="filter-container" class="flex flex-wrap gap-2">
+                <button onclick="filterBooks('all')" class="filter-btn active bg-retro-dark text-retro-paper px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">All Subjects</button>
+                <button onclick="filterBooks('Biology')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Biology</button>
+                <button onclick="filterBooks('Physics')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Physics</button>
+                <button onclick="filterBooks('Chemistry')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Chemistry</button>
+                <button onclick="filterBooks('Mathematics')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Maths D</button>
+            </div>
+        </div>
+
+        <!-- Book Grid -->
+        <div id="book-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Biology Paper 1 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Biology">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5090</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-200 to-orange-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Biology</h4>
+                            <p class="text-xs font-bold text-stone-700">Multiple Choice (2013 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Biology 5090 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Comprehensive topical compilation of O Level Biology Paper 1 (Multiple Choice Questions) from 2013 onwards.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('bio-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('bio-p1', 'O Level Biology 5090 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Biology Paper 2 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Biology">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5090</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-300 to-orange-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Biology</h4>
+                            <p class="text-xs font-bold text-stone-700">Theory & Structured Questions</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Biology 5090 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Definitive guide for O Level Biology Paper 2 (Theory) structured and essay questions.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('bio-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('bio-p2', 'O Level Biology 5090 - Paper 2', 1199)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Physics Paper 1 -->
+            <div class="bg-emerald-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Physics">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-green text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5054</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-emerald-200 to-teal-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Physics</h4>
+                            <p class="text-xs font-bold text-stone-700">Multiple Choice (2013 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Physics 5054 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Master O Level Physics Paper 1 MCQs with quick calculation shortcuts and conceptual breakdowns.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('phy-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('phy-p1', 'O Level Physics 5054 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Physics Paper 2 -->
+            <div class="bg-emerald-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Physics">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-green text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5054</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-emerald-300 to-teal-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Physics</h4>
+                            <p class="text-xs font-bold text-stone-700">Theory (2013 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Physics 5054 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Rigorous compilation of Section A and Section B physics questions with step-by-step working.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('phy-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('phy-p2', 'O Level Physics 5054 - Paper 2', 1199)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Chemistry Paper 1 -->
+            <div class="bg-sky-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Chemistry">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-blue text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5070</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-sky-200 to-blue-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Chemistry</h4>
+                            <p class="text-xs font-bold text-stone-700">Multiple Choice (2013 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Chemistry 5070 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Master stoichiometry, organic chemistry reaction pathways, electrolysis, and periodic trends.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('chem-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('chem-p1', 'O Level Chemistry 5070 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Chemistry Paper 2 -->
+            <div class="bg-sky-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Chemistry">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-blue text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 5070</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-sky-300 to-blue-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Chemistry</h4>
+                            <p class="text-xs font-bold text-stone-700">Theory (2013 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Chemistry 5070 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Essential theory practice for O Level Chemistry 5070 structured questions and qualitative analysis.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('chem-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('chem-p2', 'O Level Chemistry 5070 - Paper 2', 1199)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Mathematics Paper 1 -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Mathematics">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 4024</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-rose-200 to-pink-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Mathematics</h4>
+                            <p class="text-xs font-bold text-stone-700">Non-Calculator Topical</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Mathematics (D) 4024 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical past paper compilation for O Level Mathematics D Paper 1 (Non-Calculator).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('math-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('math-p1', 'O Level Mathematics (D) 4024 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Mathematics Paper 2 -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Mathematics">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">Code: 4024</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-rose-300 to-pink-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Mathematics</h4>
+                            <p class="text-xs font-bold text-stone-700">Calculator-Allowed Topical</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Mathematics (D) 4024 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Dedicated topical book for O Level Mathematics D Paper 2 (Calculator-Allowed).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1099 BDT</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Reviews</span>
+                            <span class="font-bold text-xs">⭐ 5.0 (1)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('math-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> View Details</button>
+                        <button onclick="addToCart('math-p2', 'O Level Mathematics (D) 4024 - Paper 2', 1099)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Why Paper Bros Section -->
+    <section id="about" class="border-t-2 border-b-2 border-retro-dark bg-retro-card py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-black uppercase tracking-widest text-retro-magenta bg-rose-100 px-3 py-1 rounded border border-retro-dark">Why Choose Us</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl uppercase mt-2">Engineered For Top Grades</h2>
+                <p class="text-stone-600 mt-2">Every book is crafted keeping the Cambridge O Level examiners' reports and marking schemes in absolute focus.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">🎯</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Topical Organization</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Questions categorized strictly by syllabus topics so you can master weak areas chapter by chapter without jumping years.</p>
+                </div>
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">💡</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Expert Solutions</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Comprehensive, error-free worked solutions and explanation notes detailing why correct options are chosen and common pitfalls to avoid.</p>
+                </div>
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">📦</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Cash On Delivery</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Fast and dependable courier delivery right to your doorstep across Bangladesh. Pay securely when you receive your books.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-retro-dark text-retro-paper py-12 px-4 sm:px-6 lg:px-8 border-t-2 border-retro-dark">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4 md:col-span-2">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-retro-orange border-2 border-retro-paper flex items-center justify-center font-display font-black text-xl text-retro-dark overflow-hidden">
+                        <img src="logo.jpg" alt="PB" class="w-full h-full object-cover">
+                    </div>
+                    <span class="font-display font-black text-2xl tracking-tighter uppercase">Paper Bros</span>
+                </div>
+                <p class="text-stone-400 text-sm max-w-sm">
+                    Your premier destination for Cambridge O Level GCE topical past paper compilations. Designed by top educators to help students conquer their exams.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-lg mb-4 text-retro-orange">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="#catalog" class="hover:text-white transition-colors">Browse Catalog</a></li>
+                    <li><a href="#subjects" class="hover:text-white transition-colors">Subjects</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Our Philosophy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-lg mb-4 text-retro-orange">Contact & Support</h4>
+                <p class="text-sm text-stone-300 leading-relaxed">
+                    Email: paperbrosofficial@gmail.com<br>
+                    Hotline: +880 1770495435<br>
+                    Dhaka, Bangladesh
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-stone-800 text-center text-xs text-stone-400">
+            &copy; 2026 Paper Bros. All rights reserved. O Level GCE Topical Solutions.
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-[8px_8px_0px_#1C1917] p-6 sm:p-8 relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro hover:bg-rose-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden justify-end">
+        <div class="bg-retro-paper border-l-2 border-retro-dark w-full max-w-md h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b-2 border-retro-dark">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-black">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-black text-2xl uppercase">Your Cart</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="w-9 h-9 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-6 space-y-4"></div>
+            </div>
+            <div id="cart-footer" class="border-t-2 border-retro-dark pt-6 space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-[8px_8px_0px_#1C1917] p-6 sm:p-8 relative">
+            <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro hover:bg-rose-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-6">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest text-retro-orange bg-orange-100 px-3 py-1 rounded border border-retro-dark">Secure Checkout</span>
+                    <h3 class="font-display font-black text-2xl sm:text-3xl uppercase mt-2">Cash On Delivery</h3>
+                    <p class="text-stone-600 text-sm mt-1">Please enter your delivery details below to confirm your order.</p>
+                </div>
+
+                <form id="order-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="submitOrder(event)" class="space-y-4">
+                    <input type="hidden" name="access_key" value="0cf964ae-a8b2-411d-95d9-540a57b63005">
+                    <input type="hidden" name="subject" value="New Book Order from Paper Bros!">
+                    <input type="hidden" name="from_name" value="Paper Bros Website">
+                    
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Full Name *</label>
+                        <input type="text" id="cust-name" name="Name" required placeholder="e.g. Tanvir Ahmed" class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Phone Number *</label>
+                        <input type="tel" id="cust-phone" name="Phone" required placeholder="e.g. 01712345678" class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Delivery Address *</label>
+                        <textarea id="cust-address" name="Address" required rows="2" placeholder="House/Road/Area, Apartment, etc." class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">City / Region *</label>
+                        <select id="cust-city" name="City" required class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Barisal">Barisal</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Mymensingh">Mymensingh</option>
+                            <option value="Other">Other Districts</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" id="order-details-input" name="Order_Summary" value="">
+
+                    <div class="bg-amber-50 border-2 border-retro-dark p-4 rounded-xl text-xs space-y-1 font-medium">
+                        <div class="flex justify-between"><span>Payment Method:</span> <span class="font-bold">Cash on Delivery (COD)</span></div>
+                        <div class="flex justify-between"><span>Estimated Delivery:</span> <span class="font-bold">2-3 Business Days</span></div>
+                        <div class="flex justify-between border-t border-retro-dark/20 pt-1 text-sm font-black"><span>Total Payable:</span> <span id="checkout-total-amount">0 BDT</span></div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-retro-orange text-white py-4 rounded-xl font-black uppercase text-base border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917]">
+                        Confirm & Place Order via WhatsApp 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-md w-full p-8 text-center space-y-6 shadow-[8px_8px_0px_#1C1917]">
+            <div class="w-20 h-20 bg-retro-green border-2 border-retro-dark rounded-full mx-auto flex items-center justify-center text-white text-3xl font-black shadow-[4px_4px_0px_#1C1917]">
+                ✓
+            </div>
+            <div class="space-y-2">
+                <h3 class="font-display font-black text-3xl uppercase">Order Placed!</h3>
+                <p class="text-stone-600 text-sm">Your order has been recorded and WhatsApp has opened to send your invoice directly to Paper Bros (+880 1770495435)!</p>
+            </div>
+            <div id="order-summary-box" class="bg-retro-card border-2 border-retro-dark p-4 rounded-xl text-left text-xs space-y-1 font-medium"></div>
+            <button onclick="closeSuccessModal()" class="w-full bg-retro-dark text-retro-paper py-3.5 rounded-xl font-bold uppercase border-2 border-retro-dark btn-retro">
+                Back to Store
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-retro-dark text-retro-paper px-6 py-3 rounded-xl border-2 border-retro-paper font-bold text-sm shadow-2xl flex items-center gap-3">
+        <span id="toast-icon">✨</span>
+        <span id="toast-message">Item added to cart</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let cart = [];
+
+        window.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+
+        function filterBooks(subject) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('bg-retro-dark', 'text-retro-paper');
+                buttons[i].classList.add('bg-retro-cream', 'text-retro-dark');
+            }
+            event.target.classList.remove('bg-retro-cream', 'text-retro-dark');
+            event.target.classList.add('bg-retro-dark', 'text-retro-paper');
+
+            const cards = document.querySelectorAll('#book-grid > div');
+            for (let i = 0; i < cards.length; i++) {
+                if (subject === 'all' || cards[i].getAttribute('data-subject') === subject) {
+                    cards[i].style.display = 'flex';
+                } else {
+                    cards[i].style.display = 'none';
+                }
+            }
+        }
+
+        function openModal(bookId) {
+            const modalContent = document.getElementById('modal-content');
+            let title = "", subtitle = "", price = 0, code = "", desc = "";
+            
+            if (bookId === 'bio-p1') {
+                title = "O Level Biology 5090 - Paper 1"; subtitle = "Multiple Choice (2013 - 2026)"; price = 999; code = "5090";
+                desc = "Comprehensive topical compilation of O Level Biology Paper 1 (Multiple Choice Questions) from 2013 onwards.";
+            } else if (bookId === 'bio-p2') {
+                title = "O Level Biology 5090 - Paper 2"; subtitle = "Theory & Structured Questions"; price = 1199; code = "5090";
+                desc = "Definitive guide for O Level Biology Paper 2 (Theory) structured and essay questions.";
+            } else if (bookId === 'phy-p1') {
+                title = "O Level Physics 5054 - Paper 1"; subtitle = "Multiple Choice (2013 - 2026)"; price = 999; code = "5054";
+                desc = "Master O Level Physics Paper 1 MCQs with quick calculation shortcuts and conceptual breakdowns.";
+            } else if (bookId === 'phy-p2') {
+                title = "O Level Physics 5054 - Paper 2"; subtitle = "Theory (2013 - 2026)"; price = 1199; code = "5054";
+                desc = "Rigorous compilation of Section A and Section B physics questions with step-by-step working.";
+            } else if (bookId === 'chem-p1') {
+                title = "O Level Chemistry 5070 - Paper 1"; subtitle = "Multiple Choice (2013 - 2026)"; price = 999; code = "5070";
+                desc = "Master stoichiometry, organic chemistry reaction pathways, electrolysis, and periodic trends.";
+            } else if (bookId === 'chem-p2') {
+                title = "O Level Chemistry 5070 - Paper 2"; subtitle = "Theory (2013 - 2026)"; price = 1199; code = "5070";
+                desc = "Essential theory practice for O Level Chemistry 5070 structured questions and qualitative analysis.";
+            } else if (bookId === 'math-p1') {
+                title = "O Level Mathematics (D) 4024 - Paper 1"; subtitle = "Non-Calculator Topical"; price = 999; code = "4024";
+                desc = "Topical past paper compilation for O Level Mathematics D Paper 1 (Non-Calculator).";
+            } else if (bookId === 'math-p2') {
+                title = "O Level Mathematics (D) 4024 - Paper 2"; subtitle = "Calculator-Allowed Topical"; price = 1099; code = "4024";
+                desc = "Dedicated topical book for O Level Mathematics D Paper 2 (Calculator-Allowed).";
+            }
+
+            modalContent.innerHTML = 
+                '<div class="space-y-6">' +
+                    '<div class="flex items-center gap-3">' +
+                        '<span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider">Book Details</span>' +
+                        '<span class="font-display font-black text-xs bg-retro-card px-2 py-1 rounded border border-retro-dark">Subject Code: ' + code + '</span>' +
+                    '</div>' +
+                    '<h2 class="font-display font-black text-3xl sm:text-4xl uppercase leading-tight">' + title + '</h2>' +
+                    '<p class="text-sm font-bold text-stone-600">' + subtitle + '</p>' +
+                    '<div class="bg-retro-card border-2 border-retro-dark p-6 rounded-2xl space-y-4">' +
+                        '<h4 class="font-display font-bold text-lg uppercase">Full Description & Syllabus Coverage</h4>' +
+                        '<p class="text-sm text-stone-700 leading-relaxed">' + desc + '</p>' +
+                    '</div>' +
+                    '<div class="flex items-center justify-between pt-2">' +
+                        '<div>' +
+                            '<span class="text-xs uppercase font-bold text-stone-500 block">Price in BDT</span>' +
+                            '<span class="font-display font-black text-3xl text-retro-dark">' + price + ' BDT</span>' +
+                        '</div>' +
+                        '<button onclick="addToCart(\'' + bookId + '\', \'' + title + '\', ' + price + '); closeModal();" class="bg-retro-orange text-white px-6 py-3.5 rounded-xl font-black uppercase border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917] flex items-center gap-2"><i data-lucide="shopping-cart" class="w-5 h-5"></i> Add to Cart</button>' +
+                    '</div>' +
+                '</div>';
+
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.getElementById('product-modal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.remove('flex');
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function addToCart(id, title, price) {
+            let existingItem = null;
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    existingItem = cart[i];
+                    break;
+                }
+            }
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id: id, title: title, price: price, quantity: 1 });
+            }
+
+            updateCartBadge();
+            renderCartItems();
+            showToast('Added to cart!');
+        }
+
+        function updateQuantity(id, delta) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    cart[i].quantity += delta;
+                    if (cart[i].quantity <= 0) {
+                        cart.splice(i, 1);
+                    }
+                    break;
+                }
+            }
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            let totalCount = 0;
+            for (let i = 0; i < cart.length; i++) {
+                totalCount += cart[i].quantity;
+            }
+            document.getElementById('cart-badge').innerText = totalCount;
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                drawer.classList.add('flex');
+                renderCartItems();
+            } else {
+                drawer.classList.remove('flex');
+                drawer.classList.add('hidden');
+            }
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items');
+            const footer = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                container.innerHTML = 
+                    '<div class="text-center py-16 space-y-4">' +
+                        '<div class="w-16 h-16 bg-retro-card border-2 border-retro-dark rounded-full mx-auto flex items-center justify-center text-2xl">🛒</div>' +
+                        '<p class="font-bold text-stone-500 uppercase text-sm">Your cart is empty</p>' +
+                    '</div>';
+                footer.innerHTML = '';
+                return;
+            }
+
+            let cartHtml = '';
+            for (let i = 0; i < cart.length; i++) {
+                cartHtml += 
+                    '<div class="bg-retro-card border-2 border-retro-dark p-4 rounded-2xl flex items-center justify-between gap-4">' +
+                        '<div>' +
+                            '<h4 class="font-display font-bold text-sm uppercase">' + cart[i].title + '</h4>' +
+                            '<span class="text-xs font-bold text-stone-600">' + cart[i].price + ' BDT each</span>' +
+                        '</div>' +
+                        '<div class="flex items-center gap-2">' +
+                            '<div class="flex items-center border-2 border-retro-dark bg-retro-paper rounded-xl overflow-hidden">' +
+                                '<button onclick="updateQuantity(\'' + cart[i].id + '\', -1)" class="px-2.5 py-1 font-black hover:bg-stone-200">-</button>' +
+                                '<span class="px-3 font-bold text-xs">' + cart[i].quantity + '</span>' +
+                                '<button onclick="updateQuantity(\'' + cart[i].id + '\', 1)" class="px-2.5 py-1 font-black hover:bg-stone-200">+</button>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+            }
+            container.innerHTML = cartHtml;
+
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            const grandTotal = subtotal + shipping;
+
+            footer.innerHTML = 
+                '<div class="space-y-2 text-sm font-medium">' +
+                    '<div class="flex justify-between"><span>Subtotal:</span> <span class="font-bold">' + subtotal + ' BDT</span></div>' +
+                    '<div class="flex justify-between"><span>Shipping (COD):</span> <span class="font-bold">' + (shipping === 0 ? 'FREE' : shipping + ' BDT') + '</span></div>' +
+                    '<div class="flex justify-between text-base font-black border-t-2 border-retro-dark pt-2"><span>Total:</span> <span class="text-retro-orange">' + grandTotal + ' BDT</span></div>' +
+                '</div>' +
+                '<button onclick="openCheckoutModal()" class="w-full bg-retro-orange text-white py-4 rounded-xl font-black uppercase text-sm border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917]">Proceed to Checkout (COD)</button>';
+            lucide.createIcons();
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            toggleCart();
+            
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            document.getElementById('checkout-total-amount').innerText = (subtotal + shipping) + ' BDT';
+
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            document.getElementById('checkout-modal').classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.remove('flex');
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function submitOrder(event) {
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            const city = document.getElementById('cust-city').value;
+
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            const grandTotal = subtotal + shipping;
+            const orderId = 'PB-' + Math.floor(100000 + Math.random() * 900000);
+
+            let itemsSummary = '';
+            for (let i = 0; i < cart.length; i++) {
+                itemsSummary += '- ' + cart[i].title + ' (Qty: ' + cart[i].quantity + ' @ ' + cart[i].price + ' BDT)\n';
+            }
+
+            let fullSummaryText = 'Order ID: ' + orderId + '\nName: ' + name + '\nPhone: ' + phone + '\nAddress: ' + address + ', ' + city + '\n\nItems:\n' + itemsSummary + '\nTotal: ' + grandTotal + ' BDT (COD)';
+
+            document.getElementById('order-details-input').value = fullSummaryText;
+
+            document.getElementById('order-summary-box').innerHTML = 
+                '<div><strong>Order ID:</strong> ' + orderId + '</div>' +
+                '<div><strong>Name:</strong> ' + name + '</div>' +
+                '<div><strong>Phone:</strong> ' + phone + '</div>' +
+                '<div><strong>Address:</strong> ' + address + ', ' + city + '</div>' +
+                '<div><strong>Total Amount:</strong> ' + grandTotal + ' BDT (COD)</div>';
+
+            const whatsappMessage = encodeURIComponent('Hello Paper Bros! I want to place an order:\n\n' + fullSummaryText);
+            window.open('https://wa.me/8801770495435?text=' + whatsappMessage, '_blank');
+
+            cart = [];
+            updateCartBadge();
+            closeCheckoutModal();
+            document.getElementById('success-modal').classList.remove('hidden');
+            document.getElementById('success-modal').classList.add('flex');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.remove('flex');
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('order-form').reset();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(function() {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
