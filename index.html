@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Bros - O Level Topical Past Papers</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        retro: {
+                            paper: '#F6F2EB',
+                            card: '#EFEAE1',
+                            dark: '#1C1917',
+                            orange: '#F97316',
+                            green: '#10B981',
+                            blue: '#3B82F6',
+                            magenta: '#BE185D',
+                            cream: '#FFFBEB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .halftone-bg {
+            background-image: radial-gradient(#1c1917 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        .paper-card {
+            box-shadow: 4px 4px 0px #1C1917;
+            transition: all 0.2s ease;
+        }
+        .paper-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #1C1917;
+        }
+        .btn-retro {
+            box-shadow: 3px 3px 0px #1C1917;
+            transition: all 0.15s ease;
+        }
+        .btn-retro:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px #1C1917;
+        }
+        .btn-retro:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #1C1917;
+        }
+    </style>
+</head>
+<body class="bg-retro-paper text-retro-dark font-sans selection:bg-retro-orange selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-retro-dark text-retro-paper text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+        Cash on Delivery Available Across Bangladesh! Free Shipping on Orders Over 2,500 BDT!
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-retro-paper/95 backdrop-blur border-b-2 border-retro-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-display font-black text-xl group-hover:rotate-12 transition-transform shadow-[2px_2px_0px_#1C1917] overflow-hidden">
+                    <img src="logo.jpg" alt="PB" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="font-display font-black text-2xl tracking-tighter uppercase">Paper Bros</span>
+                    <span class="block text-[10px] tracking-widest font-bold uppercase text-stone-600">O Level Topical Past Papers & Notes</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-4 sm:gap-6">
+                <nav class="hidden md:flex items-center gap-6 font-semibold text-sm">
+                    <a href="#catalog" class="hover:text-retro-orange transition-colors">All Books & Notes</a>
+                    <a href="#about" class="hover:text-retro-orange transition-colors">Why Paper Bros</a>
+                </nav>
+
+                <button onclick="toggleCart()" class="relative bg-retro-cream border-2 border-retro-dark px-4 py-2 rounded-xl font-bold flex items-center gap-2 btn-retro">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span class="hidden sm:inline">Cart</span>
+                    <span id="cart-badge" class="absolute -top-2 -right-2 bg-retro-magenta text-white text-xs w-6 h-6 rounded-full border-2 border-retro-dark flex items-center justify-center font-black">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden border-b-2 border-retro-dark bg-retro-card py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-block bg-retro-orange text-white border-2 border-retro-dark px-3 py-1 rounded-lg text-xs font-black uppercase tracking-wider rotate-[-1deg] shadow-[2px_2px_0px_#1C1917]">
+                    The Ultimate Exam Weapon (2016 - 2026)
+                </div>
+                <h1 class="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-none uppercase">
+                    A One Stop Solution For Your <span class="text-retro-orange underline decoration-retro-dark decoration-4">Exams</span>
+                </h1>
+                <p class="text-stone-700 text-lg sm:text-xl font-medium max-w-xl">
+                    Master your Cambridge O Level examinations with separate topical past paper options (P1 & P2) from 2016 to 2026 and dedicated revision notes.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#catalog" class="bg-retro-dark text-retro-paper px-6 py-3.5 rounded-xl font-bold border-2 border-retro-dark btn-retro flex items-center gap-2 text-base">
+                        <span>Browse Catalog</span>
+                        <i data-lucide="arrow-down" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#about" class="bg-retro-paper text-retro-dark px-6 py-3.5 rounded-xl font-bold border-2 border-retro-dark btn-retro flex items-center gap-2 text-base">
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="bg-amber-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square">
+                    <div class="w-12 h-12 rounded-full bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="BIO" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Sciences</h3>
+                        <p class="text-xs text-stone-600 mt-1">Bio, Phy, Chem P1 & P2</p>
+                    </div>
+                </div>
+                <div class="bg-emerald-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square mt-6">
+                    <div class="w-12 h-12 rounded-full bg-retro-green border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="MATH" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Mathematics</h3>
+                        <p class="text-xs text-stone-600 mt-1">Maths D & Add Maths P1/P2</p>
+                    </div>
+                </div>
+                <div class="bg-sky-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square -mt-6">
+                    <div class="w-12 h-12 rounded-full bg-retro-blue border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="BUS" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Commerce</h3>
+                        <p class="text-xs text-stone-600 mt-1">Business, Acc, Econ P1/P2</p>
+                    </div>
+                </div>
+                <div class="bg-indigo-100 border-2 border-retro-dark p-6 rounded-2xl paper-card flex flex-col justify-between aspect-square">
+                    <div class="w-12 h-12 rounded-full bg-indigo-600 border-2 border-retro-dark flex items-center justify-center font-display font-black text-white overflow-hidden">
+                        <img src="logo.jpg" alt="CS" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg">Computer Science</h3>
+                        <p class="text-xs text-stone-600 mt-1">2210 P1, P2 & Notes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Catalog -->
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+            <div>
+                <span class="text-xs font-black uppercase tracking-widest text-retro-orange bg-orange-100 px-3 py-1 rounded border border-retro-dark">Product Catalog</span>
+                <h2 class="font-display font-black text-3xl sm:text-5xl tracking-tight uppercase mt-2">Topical Past Papers & Notes</h2>
+                <p class="text-stone-600 mt-1">Select separate papers (2016-2026) or subject-specific notes and add to cart.</p>
+            </div>
+
+            <!-- Subject Filters -->
+            <div id="filter-container" class="flex flex-wrap gap-2">
+                <button onclick="filterBooks('all')" class="filter-btn active bg-retro-dark text-retro-paper px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">All Items</button>
+                <button onclick="filterBooks('Science')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Sciences</button>
+                <button onclick="filterBooks('Math')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Mathematics</button>
+                <button onclick="filterBooks('Commerce')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Commerce</button>
+                <button onclick="filterBooks('CS')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Computer Science</button>
+                <button onclick="filterBooks('Notes')" class="filter-btn bg-retro-cream text-retro-dark px-4 py-2 rounded-xl font-bold text-sm border-2 border-retro-dark btn-retro">Revision Notes</button>
+            </div>
+        </div>
+
+        <!-- Book Grid -->
+        <div id="book-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. Biology P1 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5090</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-200 to-orange-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Biology P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical MCQ (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Biology 5090 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical multiple choice past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('bio-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('bio-p1', 'O Level Biology 5090 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Biology P2 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5090</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-300 to-orange-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Biology P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Theory (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Biology 5090 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical structured theory past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1249 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('bio-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('bio-p2', 'O Level Biology 5090 - Paper 2', 1249)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Biology Notes -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5090</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-400 to-orange-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Biology Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Biology 5090 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Biology syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('bio-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('bio-notes', 'O Level Biology Revision Notes', 599)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Physics P1 -->
+            <div class="bg-emerald-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-green text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5054</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-emerald-200 to-teal-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Physics P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical MCQ (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Physics 5054 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical multiple choice past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('phy-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('phy-p1', 'O Level Physics 5054 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Physics P2 -->
+            <div class="bg-emerald-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-green text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5054</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-emerald-300 to-teal-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Physics P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Theory (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Physics 5054 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical structured theory past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1249 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('phy-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('phy-p2', 'O Level Physics 5054 - Paper 2', 1249)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Physics Notes -->
+            <div class="bg-emerald-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5054</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-emerald-400 to-teal-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Physics Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Physics 5054 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Physics syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('phy-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('phy-notes', 'O Level Physics Revision Notes', 599)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Chemistry P1 -->
+            <div class="bg-sky-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-blue text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5070</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-sky-200 to-blue-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Chemistry P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical MCQ (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Chemistry 5070 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical multiple choice past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">999 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('chem-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('chem-p1', 'O Level Chemistry 5070 - Paper 1', 999)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Chemistry P2 -->
+            <div class="bg-sky-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Science">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-blue text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Science P2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5070</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-sky-300 to-blue-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Chemistry P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Theory (2016 - 2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Chemistry 5070 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical structured theory past papers compilation from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1249 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('chem-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('chem-p2', 'O Level Chemistry 5070 - Paper 2', 1249)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Chemistry Notes -->
+            <div class="bg-sky-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">5070</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-sky-400 to-blue-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Chemistry Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Chemistry 5070 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Chemistry syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('chem-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('chem-notes', 'O Level Chemistry Revision Notes', 599)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Maths D P1 -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Math">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">4024</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-rose-200 to-pink-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Maths D P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Non-Calculator (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Mathematics D 4024 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical past papers for Maths D Paper 1 (Non-Calculator) from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1299 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('mathd-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('mathd-p1', 'O Level Mathematics D 4024 - Paper 1', 1299)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Maths D P2 -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Math">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">4024</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-rose-300 to-pink-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Maths D P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Calculator (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Mathematics D 4024 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical past papers for Maths D Paper 2 (Calculator) from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1299 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('mathd-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('mathd-p2', 'O Level Mathematics D 4024 - Paper 2', 1299)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Add Maths P1 (Subject Code 4037) -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Math">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">4037</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-rose-400 to-pink-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Add Maths P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Additional Mathematics 4037 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical past papers compilation for Additional Mathematics Paper 1 from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1349 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('addmath-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('addmath-p1', 'O Level Additional Mathematics 4037 - Paper 1', 1349)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Add Maths P2 (Subject Code 4037) -->
+            <div class="bg-rose-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Math">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">4037</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-pink-400 to-rose-500 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Add Maths P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Additional Mathematics 4037 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical past papers compilation for Additional Mathematics Paper 2 from 2016 to 2026.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1349 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('addmath-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('addmath-p2', 'O Level Additional Mathematics 4037 - Paper 2', 1349)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Business Studies P1 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7115</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-200 to-yellow-200 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Business P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Business Studies 7115 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical short-answer and structured questions compilation for Paper 1 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('biz-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('biz-p1', 'O Level Business Studies 7115 - Paper 1', 1199)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 15. Business Studies P2 -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-orange text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7115</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-300 to-yellow-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Business P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Business Studies 7115 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical case study and essay questions compilation for Paper 2 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('biz-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('biz-p2', 'O Level Business Studies 7115 - Paper 2', 1199)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 16. Business Studies Notes -->
+            <div class="bg-amber-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-retro-magenta text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7115</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-amber-400 to-yellow-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Business Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Business Studies 7115 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Business syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('biz-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('biz-notes', 'O Level Business Studies Revision Notes', 599)" class="bg-retro-orange text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 17. Accounting P1 -->
+            <div class="bg-violet-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-violet-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7707</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-violet-200 to-purple-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Accounting P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Principles of Accounts 7707 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical bookkeeping and MCQ past papers compilation for Paper 1 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('acc-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('acc-p1', 'O Level Principles of Accounts 7707 - Paper 1', 1199)" class="bg-violet-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 18. Accounting P2 -->
+            <div class="bg-violet-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-violet-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7707</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-violet-300 to-purple-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Accounting P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Principles of Accounts 7707 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical financial statements and structured problems compilation for Paper 2 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('acc-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('acc-p2', 'O Level Principles of Accounts 7707 - Paper 2', 1199)" class="bg-violet-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 19. Accounting Notes -->
+            <div class="bg-violet-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-violet-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">7707</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-violet-400 to-purple-500 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Accounting Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Principles of Accounts 7707 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Accounting syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('acc-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('acc-notes', 'O Level Accounting Revision Notes', 599)" class="bg-violet-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 20. Economics P1 -->
+            <div class="bg-teal-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-teal-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2281</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-teal-200 to-emerald-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Economics P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Economics 2281 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical multiple choice past papers compilation for Paper 1 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('econ-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('econ-p1', 'O Level Economics 2281 - Paper 1', 1199)" class="bg-teal-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 21. Economics P2 -->
+            <div class="bg-teal-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Commerce">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-teal-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2281</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-teal-300 to-emerald-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Economics P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Topical Past Papers (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Economics 2281 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical structured and data response past papers for Paper 2 (2016-2026).</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">1199 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('econ-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('econ-p2', 'O Level Economics 2281 - Paper 2', 1199)" class="bg-teal-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 22. Economics Notes -->
+            <div class="bg-teal-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="Notes">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-teal-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2281</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-teal-400 to-emerald-500 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Economics Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Economics 2281 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Economics syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('econ-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('econ-notes', 'O Level Economics Revision Notes', 599)" class="bg-teal-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 23. Computer Science P1 (Indigo Theme) -->
+            <div class="bg-indigo-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="CS">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-indigo-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 1</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2210</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-indigo-200 to-purple-300 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Comp Sci P1</h4>
+                            <p class="text-xs font-bold text-stone-700">Theory (2016-2026)</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Computer Science 2210 - Paper 1</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical computer systems and theory past papers compilation for Paper 1.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Status</span>
+                            <span class="font-display font-black text-lg text-indigo-700">RELEASING SOON! 🚀</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('cs-p1')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button disabled class="bg-stone-300 text-stone-600 py-2.5 px-3 rounded-xl font-bold text-[11px] border-2 border-retro-dark uppercase flex items-center justify-center gap-1 cursor-not-allowed">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 24. Computer Science P2 (Indigo Theme) -->
+            <div class="bg-indigo-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="CS">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-indigo-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Paper 2</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2210</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-indigo-300 to-purple-400 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Comp Sci P2</h4>
+                            <p class="text-xs font-bold text-stone-700">Problem Solving & Programming</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Computer Science 2210 - Paper 2</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Topical algorithms, pseudocode, and programming past papers for Paper 2.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Status</span>
+                            <span class="font-display font-black text-lg text-indigo-700">RELEASING SOON! 🚀</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('cs-p2')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button disabled class="bg-stone-300 text-stone-600 py-2.5 px-3 rounded-xl font-bold text-[11px] border-2 border-retro-dark uppercase flex items-center justify-center gap-1 cursor-not-allowed">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 25. Computer Science Notes (Indigo Theme) -->
+            <div class="bg-indigo-100 border-2 border-retro-dark rounded-2xl paper-card p-6 flex flex-col justify-between relative group" data-subject="CS">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-indigo-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider shadow-[2px_2px_0px_#1C1917]">Notes</span>
+                        <span class="font-display font-black text-xs bg-retro-paper px-2 py-1 rounded border border-retro-dark">2210</span>
+                    </div>
+                    <div class="w-full h-40 bg-gradient-to-br from-indigo-400 to-purple-500 border-2 border-retro-dark rounded-xl mb-4 p-4 flex flex-col justify-between relative overflow-hidden halftone-bg">
+                        <div class="absolute -right-6 -bottom-6 w-24 h-24 rounded-full border-4 border-retro-dark/20 flex items-center justify-center font-display font-black text-4xl opacity-30 uppercase overflow-hidden">
+                            <img src="logo.jpg" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <span class="font-display font-black text-xs text-retro-dark/70 tracking-widest uppercase">Paper Bros Edition</span>
+                        <div>
+                            <h4 class="font-display font-black text-xl uppercase leading-tight">Comp Sci Notes</h4>
+                            <p class="text-xs font-bold text-stone-700">Concept Review</p>
+                        </div>
+                    </div>
+                    <h3 class="font-display font-black text-xl uppercase mb-1 leading-snug">O Level Computer Science 2210 - Revision Notes</h3>
+                    <p class="text-xs text-stone-600 line-clamp-2 mb-4 font-medium">Concise, high-yield revision notes covering all Computer Science syllabus topics.</p>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between mb-4 pt-4 border-t-2 border-retro-dark/20">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold text-stone-500 block">Price</span>
+                            <span class="font-display font-black text-2xl text-retro-dark">599 BDT</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="openModal('cs-notes')" class="bg-retro-paper text-retro-dark py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1"><i data-lucide="eye" class="w-4 h-4"></i> Details</button>
+                        <button onclick="addToCart('cs-notes', 'O Level Computer Science Revision Notes', 599)" class="bg-indigo-600 text-white py-2.5 px-3 rounded-xl font-bold text-xs border-2 border-retro-dark btn-retro uppercase flex items-center justify-center gap-1 shadow-[2px_2px_0px_#1C1917]"><i data-lucide="shopping-cart" class="w-4 h-4"></i> Add</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Why Paper Bros Section -->
+    <section id="about" class="border-t-2 border-b-2 border-retro-dark bg-retro-card py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-black uppercase tracking-widest text-retro-magenta bg-rose-100 px-3 py-1 rounded border border-retro-dark">Why Choose Us</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl uppercase mt-2">Engineered For Top Grades</h2>
+                <p class="text-stone-600 mt-2">Every book and set of notes is crafted keeping Cambridge O Level examiners' reports in absolute focus (2016-2026).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">🎯</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Topical Organization</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Questions categorized strictly by syllabus topics so you can master weak areas chapter by chapter.</p>
+                </div>
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">💡</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Expert Solutions</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Comprehensive, error-free worked solutions and explanation notes detailing common pitfalls to avoid.</p>
+                </div>
+                <div class="bg-retro-paper border-2 border-retro-dark p-8 rounded-2xl paper-card space-y-4">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-200 border-2 border-retro-dark flex items-center justify-center font-bold text-2xl shadow-[2px_2px_0px_#1C1917]">📦</div>
+                    <h3 class="font-display font-bold text-xl uppercase">Cash On Delivery</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">Fast and dependable courier delivery right to your doorstep across Bangladesh with secure COD.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-retro-dark text-retro-paper py-12 px-4 sm:px-6 lg:px-8 border-t-2 border-retro-dark">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4 md:col-span-2">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-retro-orange border-2 border-retro-paper flex items-center justify-center font-display font-black text-xl text-retro-dark overflow-hidden">
+                        <img src="logo.jpg" alt="PB" class="w-full h-full object-cover">
+                    </div>
+                    <span class="font-display font-black text-2xl tracking-tighter uppercase">Paper Bros</span>
+                </div>
+                <p class="text-stone-400 text-sm max-w-sm">
+                    Your premier destination for Cambridge O Level GCE topical past paper compilations (2016-2026) and revision notes.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-lg mb-4 text-retro-orange">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-stone-300">
+                    <li><a href="#catalog" class="hover:text-white transition-colors">Browse Catalog</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Our Philosophy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-lg mb-4 text-retro-orange">Contact & Support</h4>
+                <p class="text-sm text-stone-300 leading-relaxed">
+                    Email: paperbrosofficial@gmail.com<br>
+                    Hotline: +880 1770495435<br>
+                    Dhaka, Bangladesh
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-stone-800 text-center text-xs text-stone-400">
+            &copy; 2026 Paper Bros. All rights reserved. O Level GCE Topical Solutions.
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-[8px_8px_0px_#1C1917] p-6 sm:p-8 relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro hover:bg-rose-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden justify-end">
+        <div class="bg-retro-paper border-l-2 border-retro-dark w-full max-w-md h-full flex flex-col justify-between p-6 sm:p-8 overflow-y-auto shadow-2xl">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b-2 border-retro-dark">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-retro-orange border-2 border-retro-dark flex items-center justify-center font-black">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-black text-2xl uppercase">Your Cart</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="w-9 h-9 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div id="cart-items" class="py-6 space-y-4"></div>
+            </div>
+            <div id="cart-footer" class="border-t-2 border-retro-dark pt-6 space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal (Web3Forms Direct Submission) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto shadow-[8px_8px_0px_#1C1917] p-6 sm:p-8 relative">
+            <button onclick="closeCheckoutModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-retro-card border-2 border-retro-dark flex items-center justify-center font-black btn-retro hover:bg-rose-200">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-6">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest text-retro-orange bg-orange-100 px-3 py-1 rounded border border-retro-dark">Secure Checkout</span>
+                    <h3 class="font-display font-black text-2xl sm:text-3xl uppercase mt-2">Cash On Delivery</h3>
+                    <p class="text-stone-600 text-sm mt-1">Please enter your delivery details below to place your order.</p>
+                </div>
+
+                <form id="order-form" action="https://api.web3forms.com/submit" method="POST" onsubmit="submitOrder(event)" class="space-y-4">
+                    <input type="hidden" name="access_key" value="0cf964ae-a8b2-411d-95d9-540a57b63005">
+                    <input type="hidden" name="subject" value="New Book Order from Paper Bros!">
+                    <input type="hidden" name="from_name" value="Paper Bros Website">
+                    
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Full Name *</label>
+                        <input type="text" id="cust-name" name="Name" required placeholder="e.g. Tanvir Ahmed" class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Phone Number *</label>
+                        <input type="tel" id="cust-phone" name="Phone" required placeholder="e.g. 01712345678" class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">Delivery Address *</label>
+                        <textarea id="cust-address" name="Address" required rows="2" placeholder="House/Road/Area, Apartment, etc." class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium"></textarea>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1 uppercase">City / Region *</label>
+                        <select id="cust-city" name="City" required class="w-full bg-retro-card border-2 border-retro-dark px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-retro-orange font-medium">
+                            <option value="Dhaka">Dhaka</option>
+                            <option value="Chittagong">Chittagong</option>
+                            <option value="Sylhet">Sylhet</option>
+                            <option value="Rajshahi">Rajshahi</option>
+                            <option value="Khulna">Khulna</option>
+                            <option value="Barisal">Barisal</option>
+                            <option value="Rangpur">Rangpur</option>
+                            <option value="Mymensingh">Mymensingh</option>
+                            <option value="Other">Other Districts</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" id="order-details-input" name="Order_Summary" value="">
+
+                    <div class="bg-amber-50 border-2 border-retro-dark p-4 rounded-xl text-xs space-y-1 font-medium">
+                        <div class="flex justify-between"><span>Payment Method:</span> <span class="font-bold">Cash on Delivery (COD)</span></div>
+                        <div class="flex justify-between"><span>Estimated Delivery:</span> <span class="font-bold">2-3 Business Days</span></div>
+                        <div class="flex justify-between border-t border-retro-dark/20 pt-1 text-sm font-black"><span>Total Payable:</span> <span id="checkout-total-amount">0 BDT</span></div>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="w-full bg-retro-orange text-white py-4 rounded-xl font-black uppercase text-base border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917]">
+                        Place Order Now 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-retro-paper border-2 border-retro-dark rounded-3xl max-w-md w-full p-8 text-center space-y-6 shadow-[8px_8px_0px_#1C1917]">
+            <div class="w-20 h-20 bg-retro-green border-2 border-retro-dark rounded-full mx-auto flex items-center justify-center text-white text-3xl font-black shadow-[4px_4px_0px_#1C1917]">
+                ✓
+            </div>
+            <div class="space-y-2">
+                <h3 class="font-display font-black text-3xl uppercase">Order Placed Successfully!</h3>
+                <p class="text-stone-600 text-sm">Thank you! Your order has been submitted and sent to Paper Bros. We will contact you soon for confirmation.</p>
+            </div>
+            <div id="order-summary-box" class="bg-retro-card border-2 border-retro-dark p-4 rounded-xl text-left text-xs space-y-1 font-medium"></div>
+            <button onclick="closeSuccessModal()" class="w-full bg-retro-dark text-retro-paper py-3.5 rounded-xl font-bold uppercase border-2 border-retro-dark btn-retro">
+                Back to Store
+            </button>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-retro-dark text-retro-paper px-6 py-3 rounded-xl border-2 border-retro-paper font-bold text-sm shadow-2xl flex items-center gap-3">
+        <span id="toast-icon">✨</span>
+        <span id="toast-message">Item added to cart</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        let cart = [];
+
+        window.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+        });
+
+        function filterBooks(subject) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('bg-retro-dark', 'text-retro-paper');
+                buttons[i].classList.add('bg-retro-cream', 'text-retro-dark');
+            }
+            event.target.classList.remove('bg-retro-cream', 'text-retro-dark');
+            event.target.classList.add('bg-retro-dark', 'text-retro-paper');
+
+            const cards = document.querySelectorAll('#book-grid > div');
+            for (let i = 0; i < cards.length; i++) {
+                if (subject === 'all' || cards[i].getAttribute('data-subject') === subject) {
+                    cards[i].style.display = 'flex';
+                } else {
+                    cards[i].style.display = 'none';
+                }
+            }
+        }
+
+        function openModal(bookId) {
+            const modalContent = document.getElementById('modal-content');
+            let title = "", subtitle = "", price = 0, code = "", desc = "", isReleasingSoon = false;
+            
+            if (bookId === 'bio-p1') {
+                title = "O Level Biology 5090 - Paper 1"; subtitle = "Science P1 (2016 - 2026)"; price = 999; code = "5090";
+                desc = "Topical multiple choice past papers compilation for Biology Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'bio-p2') {
+                title = "O Level Biology 5090 - Paper 2"; subtitle = "Science P2 (2016 - 2026)"; price = 1249; code = "5090";
+                desc = "Topical structured theory past papers compilation for Biology Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'bio-notes') {
+                title = "O Level Biology 5090 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "5090";
+                desc = "Concise and comprehensive revision notes covering all Biology syllabus topics.";
+            } else if (bookId === 'phy-p1') {
+                title = "O Level Physics 5054 - Paper 1"; subtitle = "Science P1 (2016 - 2026)"; price = 999; code = "5054";
+                desc = "Topical multiple choice past papers compilation for Physics Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'phy-p2') {
+                title = "O Level Physics 5054 - Paper 2"; subtitle = "Science P2 (2016 - 2026)"; price = 1249; code = "5054";
+                desc = "Topical structured theory past papers compilation for Physics Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'phy-notes') {
+                title = "O Level Physics 5054 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "5054";
+                desc = "Concise and comprehensive revision notes covering all Physics syllabus topics.";
+            } else if (bookId === 'chem-p1') {
+                title = "O Level Chemistry 5070 - Paper 1"; subtitle = "Science P1 (2016 - 2026)"; price = 999; code = "5070";
+                desc = "Topical multiple choice past papers compilation for Chemistry Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'chem-p2') {
+                title = "O Level Chemistry 5070 - Paper 2"; subtitle = "Science P2 (2016 - 2026)"; price = 1249; code = "5070";
+                desc = "Topical structured theory past papers compilation for Chemistry Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'chem-notes') {
+                title = "O Level Chemistry 5070 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "5070";
+                desc = "Concise and comprehensive revision notes covering all Chemistry syllabus topics.";
+            } else if (bookId === 'mathd-p1') {
+                title = "O Level Mathematics D 4024 - Paper 1"; subtitle = "Non-Calculator (2016 - 2026)"; price = 1299; code = "4024";
+                desc = "Topical past papers compilation for Maths D Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'mathd-p2') {
+                title = "O Level Mathematics D 4024 - Paper 2"; subtitle = "Calculator (2016 - 2026)"; price = 1299; code = "4024";
+                desc = "Topical past papers compilation for Maths D Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'addmath-p1') {
+                title = "O Level Additional Mathematics 4037 - Paper 1"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1349; code = "4037";
+                desc = "Topical past papers compilation for Additional Mathematics Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'addmath-p2') {
+                title = "O Level Additional Mathematics 4037 - Paper 2"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1349; code = "4037";
+                desc = "Topical past papers compilation for Additional Mathematics Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'biz-p1') {
+                title = "O Level Business Studies 7115 - Paper 1"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "7115";
+                desc = "Topical past papers compilation for Business Studies Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'biz-p2') {
+                title = "O Level Business Studies 7115 - Paper 2"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "7115";
+                desc = "Topical past papers compilation for Business Studies Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'biz-notes') {
+                title = "O Level Business Studies 7115 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "7115";
+                desc = "Concise and comprehensive revision notes covering all Business Studies syllabus topics.";
+            } else if (bookId === 'acc-p1') {
+                title = "O Level Principles of Accounts 7707 - Paper 1"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "7707";
+                desc = "Topical past papers compilation for Accounting Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'acc-p2') {
+                title = "O Level Principles of Accounts 7707 - Paper 2"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "7707";
+                desc = "Topical past papers compilation for Accounting Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'acc-notes') {
+                title = "O Level Principles of Accounts 7707 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "7707";
+                desc = "Concise and comprehensive revision notes covering all Accounting syllabus topics.";
+            } else if (bookId === 'econ-p1') {
+                title = "O Level Economics 2281 - Paper 1"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "2281";
+                desc = "Topical past papers compilation for Economics Paper 1 from 2016 to 2026.";
+            } else if (bookId === 'econ-p2') {
+                title = "O Level Economics 2281 - Paper 2"; subtitle = "Topical Past Papers (2016 - 2026)"; price = 1199; code = "2281";
+                desc = "Topical past papers compilation for Economics Paper 2 from 2016 to 2026.";
+            } else if (bookId === 'econ-notes') {
+                title = "O Level Economics 2281 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "2281";
+                desc = "Concise and comprehensive revision notes covering all Economics syllabus topics.";
+            } else if (bookId === 'cs-p1') {
+                title = "O Level Computer Science 2210 - Paper 1"; subtitle = "Theory (2016 - 2026)"; price = 0; code = "2210"; isReleasingSoon = true;
+                desc = "Topical theory past papers compilation for Computer Science Paper 1.";
+            } else if (bookId === 'cs-p2') {
+                title = "O Level Computer Science 2210 - Paper 2"; subtitle = "Problem Solving & Programming (2016 - 2026)"; price = 0; code = "2210"; isReleasingSoon = true;
+                desc = "Topical programming and pseudocode past papers compilation for Computer Science Paper 2.";
+            } else if (bookId === 'cs-notes') {
+                title = "O Level Computer Science 2210 - Revision Notes"; subtitle = "Revision Notes"; price = 599; code = "2210";
+                desc = "Concise, high-yield revision notes covering all Computer Science syllabus topics.";
+            }
+
+            let priceDisplayHtml = isReleasingSoon ? 
+                '<span class="font-display font-black text-2xl text-indigo-700">RELEASING SOON! 🚀</span>' :
+                '<span class="font-display font-black text-3xl text-retro-dark">' + price + ' BDT</span>';
+
+            let actionButtonHtml = isReleasingSoon ?
+                '<button disabled class="bg-stone-300 text-stone-600 px-6 py-3.5 rounded-xl font-black uppercase border-2 border-retro-dark cursor-not-allowed">Coming Soon</button>' :
+                '<button onclick="addToCart(\'' + bookId + '\', \'' + title + '\', ' + price + '); closeModal();" class="bg-retro-orange text-white px-6 py-3.5 rounded-xl font-black uppercase border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917] flex items-center gap-2"><i data-lucide="shopping-cart" class="w-5 h-5"></i> Add to Cart</button>';
+
+            modalContent.innerHTML = 
+                '<div class="space-y-6">' +
+                    '<div class="flex items-center gap-3">' +
+                        '<span class="bg-indigo-600 text-white font-black text-xs px-3 py-1 rounded-lg border-2 border-retro-dark uppercase tracking-wider">Book Details</span>' +
+                        '<span class="font-display font-black text-xs bg-retro-card px-2 py-1 rounded border border-retro-dark">Subject Code: ' + code + '</span>' +
+                    '</div>' +
+                    '<h2 class="font-display font-black text-3xl sm:text-4xl uppercase leading-tight">' + title + '</h2>' +
+                    '<p class="text-sm font-bold text-stone-600">' + subtitle + '</p>' +
+                    '<div class="bg-retro-card border-2 border-retro-dark p-6 rounded-2xl space-y-4">' +
+                        '<h4 class="font-display font-bold text-lg uppercase">Full Description & Syllabus Coverage</h4>' +
+                        '<p class="text-sm text-stone-700 leading-relaxed">' + desc + '</p>' +
+                    '</div>' +
+                    '<div class="flex items-center justify-between pt-2">' +
+                        '<div>' +
+                            '<span class="text-xs uppercase font-bold text-stone-500 block">Price / Status</span>' +
+                            priceDisplayHtml +
+                        '</div>' +
+                        actionButtonHtml +
+                    '</div>' +
+                '</div>';
+
+            document.getElementById('product-modal').classList.remove('hidden');
+            document.getElementById('product-modal').classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            document.getElementById('product-modal').classList.remove('flex');
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function addToCart(id, title, price) {
+            let existingItem = null;
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    existingItem = cart[i];
+                    break;
+                }
+            }
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id: id, title: title, price: price, quantity: 1 });
+            }
+
+            updateCartBadge();
+            renderCartItems();
+            showToast('Added to cart!');
+        }
+
+        function updateQuantity(id, delta) {
+            for (let i = 0; i < cart.length; i++) {
+                if (cart[i].id === id) {
+                    cart[i].quantity += delta;
+                    if (cart[i].quantity <= 0) {
+                        cart.splice(i, 1);
+                    }
+                    break;
+                }
+            }
+            updateCartBadge();
+            renderCartItems();
+        }
+
+        function updateCartBadge() {
+            let totalCount = 0;
+            for (let i = 0; i < cart.length; i++) {
+                totalCount += cart[i].quantity;
+            }
+            document.getElementById('cart-badge').innerText = totalCount;
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                drawer.classList.add('flex');
+                renderCartItems();
+            } else {
+                drawer.classList.remove('flex');
+                drawer.classList.add('hidden');
+            }
+        }
+
+        function renderCartItems() {
+            const container = document.getElementById('cart-items');
+            const footer = document.getElementById('cart-footer');
+
+            if (cart.length === 0) {
+                container.innerHTML = 
+                    '<div class="text-center py-16 space-y-4">' +
+                        '<div class="w-16 h-16 bg-retro-card border-2 border-retro-dark rounded-full mx-auto flex items-center justify-center text-2xl">🛒</div>' +
+                        '<p class="font-bold text-stone-500 uppercase text-sm">Your cart is empty</p>' +
+                    '</div>';
+                footer.innerHTML = '';
+                return;
+            }
+
+            let cartHtml = '';
+            for (let i = 0; i < cart.length; i++) {
+                cartHtml += 
+                    '<div class="bg-retro-card border-2 border-retro-dark p-4 rounded-2xl flex items-center justify-between gap-4">' +
+                        '<div>' +
+                            '<h4 class="font-display font-bold text-sm uppercase">' + cart[i].title + '</h4>' +
+                            '<span class="text-xs font-bold text-stone-600">' + cart[i].price + ' BDT each</span>' +
+                        '</div>' +
+                        '<div class="flex items-center gap-2">' +
+                            '<div class="flex items-center border-2 border-retro-dark bg-retro-paper rounded-xl overflow-hidden">' +
+                                '<button onclick="updateQuantity(\'' + cart[i].id + '\', -1)" class="px-2.5 py-1 font-black hover:bg-stone-200">-</button>' +
+                                '<span class="px-3 font-bold text-xs">' + cart[i].quantity + '</span>' +
+                                '<button onclick="updateQuantity(\'' + cart[i].id + '\', 1)" class="px-2.5 py-1 font-black hover:bg-stone-200">+</button>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+            }
+            container.innerHTML = cartHtml;
+
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            const grandTotal = subtotal + shipping;
+
+            footer.innerHTML = 
+                '<div class="space-y-2 text-sm font-medium">' +
+                    '<div class="flex justify-between"><span>Subtotal:</span> <span class="font-bold">' + subtotal + ' BDT</span></div>' +
+                    '<div class="flex justify-between"><span>Shipping (COD):</span> <span class="font-bold">' + (shipping === 0 ? 'FREE' : shipping + ' BDT') + '</span></div>' +
+                    '<div class="flex justify-between text-base font-black border-t-2 border-retro-dark pt-2"><span>Total:</span> <span class="text-retro-orange">' + grandTotal + ' BDT</span></div>' +
+                '</div>' +
+                '<button onclick="openCheckoutModal()" class="w-full bg-retro-orange text-white py-4 rounded-xl font-black uppercase text-sm border-2 border-retro-dark btn-retro shadow-[4px_4px_0px_#1C1917]">Proceed to Checkout (COD)</button>';
+            lucide.createIcons();
+        }
+
+        function openCheckoutModal() {
+            if (cart.length === 0) return;
+            toggleCart();
+            
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            document.getElementById('checkout-total-amount').innerText = (subtotal + shipping) + ' BDT';
+
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            document.getElementById('checkout-modal').classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.remove('flex');
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        async function submitOrder(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.innerText = 'Submitting Order...';
+            submitBtn.disabled = true;
+
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const address = document.getElementById('cust-address').value;
+            const city = document.getElementById('cust-city').value;
+
+            let subtotal = 0;
+            for (let i = 0; i < cart.length; i++) {
+                subtotal += cart[i].price * cart[i].quantity;
+            }
+            const shipping = subtotal >= 2500 ? 0 : 100;
+            const grandTotal = subtotal + shipping;
+            const orderId = 'PB-' + Math.floor(100000 + Math.random() * 900000);
+
+            let itemsSummary = '';
+            for (let i = 0; i < cart.length; i++) {
+                itemsSummary += '- ' + cart[i].title + ' (Qty: ' + cart[i].quantity + ' @ ' + cart[i].price + ' BDT)\n';
+            }
+
+            let fullSummaryText = 'Order ID: ' + orderId + '\nName: ' + name + '\nPhone: ' + phone + '\nAddress: ' + address + ', ' + city + '\n\nItems:\n' + itemsSummary + '\nTotal: ' + grandTotal + ' BDT (COD)';
+
+            document.getElementById('order-details-input').value = fullSummaryText;
+
+            const form = document.getElementById('order-form');
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    document.getElementById('order-summary-box').innerHTML = 
+                        '<div><strong>Order ID:</strong> ' + orderId + '</div>' +
+                        '<div><strong>Name:</strong> ' + name + '</div>' +
+                        '<div><strong>Phone:</strong> ' + phone + '</div>' +
+                        '<div><strong>Address:</strong> ' + address + ', ' + city + '</div>' +
+                        '<div><strong>Total Amount:</strong> ' + grandTotal + ' BDT (COD)</div>';
+
+                    cart = [];
+                    updateCartBadge();
+                    closeCheckoutModal();
+                    document.getElementById('success-modal').classList.remove('hidden');
+                    document.getElementById('success-modal').classList.add('flex');
+                } else {
+                    alert('Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                alert('Submission failed. Please check your internet connection.');
+            } finally {
+                submitBtn.innerText = 'Place Order Now 🚀';
+                submitBtn.disabled = false;
+            }
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.remove('flex');
+            document.getElementById('success-modal').classList.add('hidden');
+            document.getElementById('order-form').reset();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = message;
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(function() {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
