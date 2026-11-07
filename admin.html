@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Paper Bros Admin</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1d3a'/%3E%3Cpath d='M20 16h18l8 8v24H20z' fill='%23fdfaf3'/%3E%3Cpath d='M38 16v8h8' fill='%23ffc94d'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <section class="login" id="login">
+    <form class="login-card" id="loginForm">
+      <div class="login-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#0f1d3a"/><path d="M20 16h18l8 8v24H20z" fill="#fdfaf3"/><path d="M38 16v8h8" fill="#ffc94d"/><rect x="25" y="31" width="16" height="3" rx="1.5" fill="#0f1d3a"/><rect x="25" y="38" width="11" height="3" rx="1.5" fill="#0f1d3a"/></svg>
+        <div><strong>Paper Bros</strong><span>Admin panel</span></div>
+      </div>
+      <label for="pass">Admin passcode</label>
+      <input id="pass" type="password" autocomplete="current-password" required autofocus>
+      <p class="login-err" id="loginErr" role="alert"></p>
+      <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+      <a class="back-link" href="index.html">← Back to website</a>
+    </form>
+  </section>
+
+  <!-- APP -->
+  <div class="app" id="app" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="side-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#ffc94d"/><path d="M20 16h18l8 8v24H20z" fill="#fdfaf3"/><path d="M38 16v8h8" fill="#0f1d3a"/><rect x="25" y="31" width="16" height="3" rx="1.5" fill="#0f1d3a"/><rect x="25" y="38" width="11" height="3" rx="1.5" fill="#0f1d3a"/></svg>
+        <div><strong>Paper Bros</strong><span>Admin</span></div>
+      </div>
+      <nav class="side-nav">
+        <button data-tab="dashboard" class="active"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard</button>
+        <button data-tab="orders"><svg viewBox="0 0 24 24"><path d="M6 3h12l1 4H5zM5 7h14v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M9 11h6"/></svg>Orders <span class="pill" id="navNew" hidden></span></button>
+        <button data-tab="products"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h5"/></svg>Products</button>
+        <button data-tab="subjects"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 1h13v-3"/></svg>Subjects</button>
+        <button data-tab="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>Settings</button>
+        <button data-tab="publish"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5M5 15v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg>Publish <span class="pill pill-warn" id="navDirty" hidden>!</span></button>
+      </nav>
+      <div class="side-foot">
+        <a href="index.html" target="_blank" rel="noopener">View website ↗</a>
+        <button id="logout">Log out</button>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+        <h1 id="pageTitle">Dashboard</h1>
+        <div class="topbar-right">
+          <span class="draft-chip" id="draftChip" hidden>Unpublished changes</span>
+          <button class="btn btn-sm btn-ghost" id="previewBtn">Preview site</button>
+        </div>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section class="panel" data-panel="dashboard">
+        <div class="kpis" id="kpis"></div>
+        <div class="two-col">
+          <div class="card">
+            <div class="card-head"><h2>Recent orders</h2><button class="link" data-goto="orders">View all</button></div>
+            <div id="recentOrders"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h2>Setup checklist</h2></div>
+            <ol class="checklist">
+              <li>
+                <strong>Activate email delivery</strong>
+                <p>Place one test order on the website. FormSubmit will email <b id="dashEmail"></b> an activation link. Click <em>Activate Form</em>; every order after that arrives in your inbox.</p>
+              </li>
+              <li>
+                <strong>Change the admin passcode</strong>
+                <p>Go to <button class="link" data-goto="settings">Settings</button> and set your own passcode, then publish.</p>
+              </li>
+              <li>
+                <strong>Check prices &amp; delivery charges</strong>
+                <p>Review <button class="link" data-goto="products">Products</button> and the delivery fees in Settings.</p>
+              </li>
+              <li>
+                <strong>Publish</strong>
+                <p>Download <code>data.js</code> from <button class="link" data-goto="publish">Publish</button> and upload it to your site.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORDERS -->
+      <section class="panel" data-panel="orders" hidden>
+        <div class="card import-card">
+          <div>
+            <h2>Add an order from email</h2>
+            <p class="muted">Every order email ends with an <b>Admin import code</b>. Copy that code, paste it here, and the order is added to this tracker.</p>
+          </div>
+          <form id="importForm" class="import-form">
+            <textarea id="importText" rows="3" placeholder='Paste the Admin import code here, e.g. {"id":"PB-261107-AB12", …}'></textarea>
+            <button class="btn btn-primary" type="submit">Add order</button>
+          </form>
+        </div>
+        <div class="toolbar">
+          <input type="search" id="orderSearch" placeholder="Search by ID, name, phone, area…">
+          <select id="orderFilter">
+            <option value="">All statuses</option>
+          </select>
+          <button class="btn btn-ghost" id="exportCsv">Export CSV</button>
+        </div>
+        <div class="card table-card"><div class="table-wrap" id="ordersTable"></div></div>
+        <p class="muted small">Orders tracked here are stored in this browser only. Use <b>Export CSV</b> or the backup on the Publish page to keep a copy.</p>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section class="panel" data-panel="products" hidden>
+        <div class="toolbar">
+          <input type="search" id="productSearch" placeholder="Search products…">
+          <select id="productFilter"><option value="">All categories</option></select>
+          <button class="btn btn-primary" id="addProduct">+ Add product</button>
+        </div>
+        <div class="card table-card"><div class="table-wrap" id="productsTable"></div></div>
+      </section>
+
+      <!-- SUBJECTS -->
+      <section class="panel" data-panel="subjects" hidden>
+        <div class="toolbar">
+          <p class="muted grow">Subjects group your products and set each book's cover colour.</p>
+          <button class="btn btn-primary" id="addSubject">+ Add subject</button>
+        </div>
+        <div class="card table-card"><div class="table-wrap" id="subjectsTable"></div></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="panel" data-panel="settings" hidden>
+        <form id="settingsForm" class="settings">
+          <div class="card">
+            <h2>Contact &amp; orders</h2>
+            <div class="grid-2">
+              <div class="field"><label for="sEmail">Order email (orders are sent here)</label><input id="sEmail" name="orderEmail" type="email" required></div>
+              <div class="field"><label for="sHotline">Hotline</label><input id="sHotline" name="hotline" required></div>
+              <div class="field"><label for="sWa">WhatsApp number (with country code)</label><input id="sWa" name="whatsapp" placeholder="8801XXXXXXXXX"></div>
+              <div class="field"><label for="sLoc">Location</label><input id="sLoc" name="location"></div>
+              <div class="field"><label for="sIg">Instagram URL</label><input id="sIg" name="instagram" type="url" placeholder="https://instagram.com/…"></div>
+              <div class="field"><label for="sFb">Facebook URL</label><input id="sFb" name="facebook" type="url" placeholder="https://facebook.com/…"></div>
+            </div>
+            <div class="field"><label for="sW3f">Web3Forms access key (recommended backup for order emails)</label><input id="sW3f" name="web3formsKey" placeholder="e.g. 1a2b3c4d-…" autocomplete="off">
+              <small class="muted" style="margin-top:6px">Free key from <a href="https://web3forms.com" target="_blank" rel="noopener">web3forms.com</a>: enter your order email there and the key arrives by email. When set, orders are sent through Web3Forms first, with FormSubmit as a backup.</small></div>
+            <div class="field"><label for="sAnn">Announcement bar</label><input id="sAnn" name="announcement" placeholder="Leave empty to hide"></div>
+          </div>
+          <div class="card">
+            <h2>Delivery</h2>
+            <div class="grid-3">
+              <div class="field"><label for="sIn">Inside Dhaka (৳)</label><input id="sIn" name="deliveryInsideDhaka" type="number" min="0" step="1"></div>
+              <div class="field"><label for="sOut">Outside Dhaka (৳)</label><input id="sOut" name="deliveryOutsideDhaka" type="number" min="0" step="1"></div>
+              <div class="field"><label for="sFree">Free shipping from (৳, 0 = off)</label><input id="sFree" name="freeShippingThreshold" type="number" min="0" step="1"></div>
+            </div>
+            <div class="field"><label for="sTime">Delivery time</label><input id="sTime" name="deliveryTime"></div>
+          </div>
+          <div class="card">
+            <h2>Payment</h2>
+            <label class="check"><input type="checkbox" name="cod"> Accept cash on delivery</label>
+            <div class="grid-2">
+              <div class="field"><label for="sBkash">bKash number (leave empty to hide)</label><input id="sBkash" name="bkash" placeholder="01XXXXXXXXX"></div>
+              <div class="field"><label for="sNagad">Nagad number (leave empty to hide)</label><input id="sNagad" name="nagad" placeholder="01XXXXXXXXX"></div>
+            </div>
+          </div>
+          <div class="sticky-save"><button class="btn btn-primary" type="submit">Save settings</button></div>
+        </form>
+        <form id="passForm" class="card">
+          <h2>Admin passcode</h2>
+          <p class="muted">The new passcode takes effect for everyone once you publish.</p>
+          <div class="grid-2">
+            <div class="field"><label for="newPass">New passcode</label><input id="newPass" type="password" minlength="6" autocomplete="new-password" required></div>
+            <div class="field"><label for="newPass2">Repeat passcode</label><input id="newPass2" type="password" minlength="6" autocomplete="new-password" required></div>
+          </div>
+          <button class="btn btn-ghost" type="submit">Change passcode</button>
+        </form>
+      </section>
+
+      <!-- PUBLISH -->
+      <section class="panel" data-panel="publish" hidden>
+        <div class="card publish-status" id="publishStatus"></div>
+        <div class="card">
+          <h2>How to publish your changes</h2>
+          <ol class="steps-list">
+            <li><b>Preview</b> your changes. <button class="btn btn-sm btn-ghost" id="previewBtn2">Open preview</button></li>
+            <li><b>Download</b> the updated data file. <button class="btn btn-sm btn-primary" id="downloadData">Download data.js</button></li>
+            <li><b>Upload</b> it to your site, replacing <code>assets/js/data.js</code>. On GitHub: open the repository → <code>assets/js</code> → <em>Add file → Upload files</em> → drop in <code>data.js</code> → <em>Commit changes</em>. The site updates within a minute or two.</li>
+          </ol>
+        </div>
+        <div class="card">
+          <h2>Backup &amp; restore</h2>
+          <div class="btn-row">
+            <button class="btn btn-ghost" id="backupOrders">Download orders backup</button>
+            <label class="btn btn-ghost file-btn">Restore orders backup<input type="file" id="restoreOrders" accept=".json,application/json" hidden></label>
+            <label class="btn btn-ghost file-btn">Load a data.js file<input type="file" id="loadData" accept=".js,.json" hidden></label>
+            <button class="btn btn-danger" id="discardDraft">Discard unpublished changes</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-x" data-close aria-label="Close">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
