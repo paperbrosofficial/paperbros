@@ -25,7 +25,7 @@ window.PB_DEFAULT_DATA = {
   "settings": {
     "brand": "Paper Bros",
     "orderEmail": "paperbrosofficial@gmail.com",
-    "web3formsKey": "d81207ba-ee93-47bb-a93b-1e89281db5be",
+    "web3formsKey": "b7478cd7-5aee-46b7-9f23-93a62541073a",
     "hotline": "+880 1770495435",
     "whatsapp": "8801770495435",
     "instagram": "",
