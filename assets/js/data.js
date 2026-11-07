@@ -26,8 +26,8 @@ window.PB_DEFAULT_DATA = {
     "brand": "Paper Bros",
     "orderEmail": "paperbrosofficial@gmail.com",
     "web3formsKey": "b7478cd7-5aee-46b7-9f23-93a62541073a",
-    "hotline": "+880 1770495435",
-    "whatsapp": "8801770495435",
+    "hotline": "+880 1870479004",
+    "whatsapp": "8801870479004",
     "instagram": "",
     "facebook": "",
     "location": "Dhaka, Bangladesh",
@@ -36,7 +36,7 @@ window.PB_DEFAULT_DATA = {
     "deliveryInsideDhaka": 80,
     "deliveryOutsideDhaka": 150,
     "deliveryTime": "2–3 business days",
-    "payment": { "cod": true, "bkash": "", "nagad": "" },
+    "payment": { "cod": true, "bkashWhatsapp": true, "bkash": "", "nagad": "" },
     "adminPassHash": "e36f2edd7280ff872557cdcd0a6d8abff040ba047832f41c101f8bc4c70e7907"
   },
   "subjects": [

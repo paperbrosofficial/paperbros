@@ -3,6 +3,7 @@
   'use strict';
 
   var CART_KEY = 'pb_cart_v1';
+  var BKASH_WA = 'bKash (via WhatsApp)';
   var DRAFT_KEY = 'pb_admin_draft';
   var FORM_ENDPOINT = 'https://formsubmit.co/ajax/';
 
@@ -66,6 +67,7 @@
       (free > 0 ? ' Orders of ' + money(free) + ' or more ship free.' : '');
     var pay = ['Cash on delivery: pay the rider when your order arrives.'];
     if (!S.payment.cod) pay = [];
+    if (S.payment.bkashWhatsapp && waNumber()) pay.push('bKash: choose "bKash (pay on WhatsApp)" at checkout, then message us on WhatsApp (' + S.hotline + ') and we\'ll send you our bKash number.');
     if (S.payment.bkash) pay.push('bKash: send money to ' + S.payment.bkash + ' and enter the transaction ID at checkout.');
     if (S.payment.nagad) pay.push('Nagad: send money to ' + S.payment.nagad + ' and enter the transaction ID at checkout.');
     $('#faqPayment').textContent = pay.join(' ');
@@ -327,11 +329,12 @@
   function renderPayOptions() {
     var opts = [];
     if (S.payment.cod) opts.push({ v: 'Cash on Delivery', t: 'Cash on delivery', d: 'Pay the rider when your order arrives' });
+    if (S.payment.bkashWhatsapp && waNumber()) opts.push({ v: BKASH_WA, t: 'bKash (pay on WhatsApp)', d: 'Place your order, then pay by bKash through WhatsApp', wa: true });
     if (S.payment.bkash) opts.push({ v: 'bKash', t: 'bKash', d: 'Send money first, then enter the transaction ID', num: S.payment.bkash });
     if (S.payment.nagad) opts.push({ v: 'Nagad', t: 'Nagad', d: 'Send money first, then enter the transaction ID', num: S.payment.nagad });
     if (!opts.length) opts.push({ v: 'Cash on Delivery', t: 'Cash on delivery', d: 'Pay the rider when your order arrives' });
     $('#payOptions').innerHTML = opts.map(function (o, i) {
-      return '<label class="pay-opt"><input type="radio" name="payment" value="' + esc(o.v) + '"' + (o.num ? ' data-num="' + esc(o.num) + '"' : '') + (i === 0 ? ' checked' : '') + '>' +
+      return '<label class="pay-opt' + (o.wa ? ' pay-bkash' : '') + '"><input type="radio" name="payment" value="' + esc(o.v) + '"' + (o.num ? ' data-num="' + esc(o.num) + '"' : '') + (o.wa ? ' data-wa="1"' : '') + (i === 0 ? ' checked' : '') + '>' +
         '<span><strong>' + esc(o.t) + '</strong><small>' + esc(o.d) + '</small></span></label>';
     }).join('');
     updatePayNote();
@@ -341,6 +344,13 @@
     var sel = $('input[name="payment"]:checked');
     var num = sel && sel.getAttribute('data-num');
     var note = $('#payNote');
+    if (sel && sel.hasAttribute('data-wa')) {
+      var fee2 = deliveryFee($('#oCity').value, subtotal());
+      note.innerHTML = 'After you place the order, tap <b>Pay with bKash on WhatsApp</b>. We\'ll send you our bKash number on WhatsApp (' + esc(S.hotline) + ') to pay <b>' + money(subtotal() + (fee2 || 0)) + '</b>' + (fee2 == null ? ' plus delivery' : '') + '. Your order is confirmed once we receive the payment.';
+      note.hidden = false;
+      $('#trxField').hidden = true;
+      return;
+    }
     if (num) {
       var city = $('#oCity').value;
       var fee = deliveryFee(city, subtotal());
@@ -478,9 +488,11 @@
   }
 
   function waOrderText(o) {
+    var bkash = o.payment === BKASH_WA;
     return 'Hi Paper Bros! I placed order ' + o.id + '.\n' +
       o.items.map(function (i) { return '• ' + i.title + ' × ' + i.qty; }).join('\n') +
-      '\nTotal: ' + money(o.total) + '\nName: ' + o.name + '\nPhone: ' + o.phone + '\nAddress: ' + o.address + ', ' + o.area + ', ' + o.city;
+      '\nTotal: ' + money(o.total) + '\nName: ' + o.name + '\nPhone: ' + o.phone + '\nAddress: ' + o.address + ', ' + o.area + ', ' + o.city +
+      (bkash ? '\n\nI want to pay ' + money(o.total) + ' by bKash. Please send me your bKash number.' : '');
   }
 
   function submitOrder(e) {
@@ -563,10 +575,15 @@
       saveCart();
       form.reset();
       $('#successId').textContent = order.id;
-      $('#successPhone').textContent = order.phone;
       var wa = $('#successWa');
+      var payBkash = order.payment === BKASH_WA;
       if (waNumber()) { wa.href = 'https://wa.me/' + waNumber() + '?text=' + encodeURIComponent(waOrderText(order)); wa.hidden = false; }
       else wa.hidden = true;
+      wa.textContent = payBkash ? 'Pay with bKash on WhatsApp' : 'Confirm on WhatsApp';
+      $('#successNote').innerHTML = payBkash
+        ? '<b>One more step:</b> tap the green button to message us on WhatsApp. We\'ll send you our bKash number so you can pay <b>' + money(order.total) + '</b>. Your order is confirmed once we receive the payment.'
+        : 'We\'ve received your order and will call you on <strong>' + esc(order.phone) + '</strong> to confirm it. Keep this ID handy if you contact us.';
+      $('#successNote').classList.toggle('pay-step', payBkash);
       $('#checkoutView').hidden = true;
       $('#successView').hidden = false;
       $('#checkoutModal').scrollTop = 0;

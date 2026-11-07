@@ -468,6 +468,7 @@
     ['orderEmail', 'web3formsKey', 'hotline', 'whatsapp', 'location', 'instagram', 'facebook', 'announcement', 'deliveryInsideDhaka', 'deliveryOutsideDhaka', 'freeShippingThreshold', 'deliveryTime']
       .forEach(function (k) { f[k].value = s[k] == null ? '' : s[k]; });
     f.cod.checked = !!s.payment.cod;
+    f.bkashWhatsapp.checked = !!s.payment.bkashWhatsapp;
     f.bkash.value = s.payment.bkash || '';
     f.nagad.value = s.payment.nagad || '';
   }
@@ -475,11 +476,11 @@
     e.preventDefault();
     var f = e.target.elements, s = draft.settings;
     if (!f.orderEmail.checkValidity()) { toast('Enter a valid order email', true); f.orderEmail.focus(); return; }
-    if (!f.cod.checked && !f.bkash.value.trim() && !f.nagad.value.trim()) { toast('Enable at least one payment method', true); return; }
+    if (!f.cod.checked && !f.bkashWhatsapp.checked && !f.bkash.value.trim() && !f.nagad.value.trim()) { toast('Enable at least one payment method', true); return; }
     ['orderEmail', 'web3formsKey', 'hotline', 'location', 'instagram', 'facebook', 'announcement', 'deliveryTime'].forEach(function (k) { s[k] = f[k].value.trim(); });
     s.whatsapp = f.whatsapp.value.replace(/\D/g, '');
     ['deliveryInsideDhaka', 'deliveryOutsideDhaka', 'freeShippingThreshold'].forEach(function (k) { s[k] = Math.max(0, Math.round(Number(f[k].value) || 0)); });
-    s.payment = { cod: f.cod.checked, bkash: f.bkash.value.trim(), nagad: f.nagad.value.trim() };
+    s.payment = { cod: f.cod.checked, bkashWhatsapp: f.bkashWhatsapp.checked, bkash: f.bkash.value.trim(), nagad: f.nagad.value.trim() };
     saveDraft(); fillSettings();
     toast('Settings saved. Publish to make them live.');
   });
