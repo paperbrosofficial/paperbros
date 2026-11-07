@@ -106,8 +106,11 @@ p { margin: 0 0 1em; }
 .site-header.scrolled { border-color: var(--line); box-shadow: 0 6px 20px -16px rgba(15, 29, 58, .4); }
 .header-inner { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); }
-.brand-mark { width: 38px; height: 38px; color: var(--ink); flex: none; }
-.brand-mark svg { width: 100%; height: 100%; }
+.brand-logo {
+  width: 44px; height: 44px; flex: none; border-radius: 10px; object-fit: cover;
+  box-shadow: 0 0 0 1.5px var(--ink), 0 4px 10px -4px rgba(15, 29, 58, .45);
+}
+.brand-light .brand-logo { width: 52px; height: 52px; box-shadow: 0 0 0 2px rgba(255, 255, 255, .85); }
 .brand-text { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; letter-spacing: -.01em; }
 .brand-text span { color: var(--accent-ink); }
 .brand-light { color: #fff; }
@@ -456,6 +459,9 @@ p { margin: 0 0 1em; }
 .pay-opt small { color: var(--muted); }
 .pay-note { margin-top: 12px; background: rgba(255, 201, 77, .2); border: 1px solid rgba(255, 183, 3, .5); border-radius: 10px; padding: 12px 14px; font-size: .9rem; color: var(--accent-ink); }
 .pay-note + .field { margin-top: 12px; }
+.pay-opt.pay-bkash { border-left: 4px solid #e2136e; }
+.pay-opt.pay-bkash input { accent-color: #e2136e; }
+.success .pay-step { color: var(--text); background: #fff4f9; border: 1px solid #f5bcd6; border-radius: 12px; padding: 12px 14px; }
 
 .success { text-align: center; padding: 30px 10px 10px; max-width: 520px; margin: 0 auto; }
 .success-icon { width: 76px; height: 76px; border-radius: 50%; background: var(--success); color: #fff; display: grid; place-items: center; margin: 0 auto 18px; animation: pop .4s cubic-bezier(.2, 1.4, .4, 1); }
