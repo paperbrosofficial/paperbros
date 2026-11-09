@@ -304,7 +304,7 @@
           '<td style="width:56px">' + (p.image
             ? '<img class="code-chip thumb" src="' + esc(p.image) + '" alt="" onerror="this.outerHTML=\'<span class=&quot;code-chip&quot; style=&quot;--c:' + esc(s.color) + '&quot;>' + esc(s.code) + '</span>\'">'
             : '<span class="code-chip" style="--c:' + esc(s.color) + '">' + esc(s.code) + '</span>') + '</td>' +
-          '<td class="cell-title"><strong>' + esc(p.title) + (p.badge ? ' <span class="status st-New">' + esc(p.badge) + '</span>' : '') + '</strong><small>' + esc(s.name) + (p.paper ? ' · ' + esc(p.paper) : '') + '</small></td>' +
+          '<td class="cell-title"><strong>' + esc(p.title) + (p.badge ? ' <span class="status st-New">' + esc(p.badge) + '</span>' : '') + '</strong><small>' + esc(s.name) + (p.paper ? ' · ' + esc(p.paper) : '') + (p.previews && p.previews.length ? ' · ' + p.previews.length + ' preview' + (p.previews.length > 1 ? 's' : '') : '') + '</small></td>' +
           '<td>' + esc(TYPES[p.type] || p.type) + '</td>' +
           '<td class="num"><strong>' + money(p.price) + '</strong>' + (p.oldPrice > p.price ? '<br><small class="muted"><s>' + money(p.oldPrice) + '</s></small>' : '') + '</td>' +
           '<td><label class="switch"><input type="checkbox" data-stock="' + esc(p.id) + '"' + (p.inStock ? ' checked' : '') + '><span></span></label></td>' +
@@ -369,6 +369,10 @@
         '<div class="field"><label>Cover image</label><input name="image" value="' + esc(p.image || '') + '" placeholder="assets/covers/' + esc(p.id || 'product-id') + '.jpg">' +
         '<small class="muted">Put the cover picture in the <code>assets/covers</code> folder of your site and type its path here. Leave it empty to use the coloured cover.</small></div>' +
       '</div>' +
+      '<div class="field"><label>Free preview PDFs (one per line: <code>Label | assets/previews/file.pdf | size</code>)</label>' +
+        '<textarea name="previews" rows="3" placeholder="Sample pages | assets/previews/bio-notes.pdf | 4.9 MB">' +
+        esc((p.previews || []).map(function (f) { return [f.label, f.file, f.size].filter(Boolean).join(' | '); }).join('\n')) + '</textarea>' +
+        '<small class="muted">Upload the PDF to <code>assets/previews</code> on GitHub. Customers can download it when they open the product.</small></div>' +
       '<label class="check"><input type="checkbox" name="inStock"' + (p.inStock ? ' checked' : '') + '> In stock</label>' +
       '<div class="modal-actions"><button type="button" class="btn btn-ghost" data-close>Cancel</button><button class="btn btn-primary" type="submit">' + (isNew ? 'Add product' : 'Save changes') + '</button></div>' +
       '</form>'
@@ -388,7 +392,12 @@
       var data = {
         subject: f.subject.value, type: f.type.value, title: f.title.value.trim(), paper: f.paper.value.trim(),
         price: price, oldPrice: Math.round(Number(f.oldPrice.value)) || 0, badge: f.badge.value.trim(),
-        desc: f.desc.value.trim(), image: f.image.value.trim(), inStock: f.inStock.checked
+        desc: f.desc.value.trim(), image: f.image.value.trim(), inStock: f.inStock.checked,
+        previews: f.previews.value.split('\n').map(function (line) {
+          var parts = line.split('|').map(function (x) { return x.trim(); });
+          if (parts.length === 1 && /\.pdf$/i.test(parts[0])) parts = ['Sample pages', parts[0]];
+          return parts[1] ? { label: parts[0] || 'Sample pages', file: parts[1], size: parts[2] || '' } : null;
+        }).filter(Boolean)
       };
       if (isNew) { data.id = uniqueId(slug(data.title)); draft.products.push(data); }
       else Object.assign(p, data);

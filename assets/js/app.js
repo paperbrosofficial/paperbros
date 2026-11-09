@@ -55,19 +55,19 @@
   function fillSettings() {
     if (PREVIEW) $('#previewBar').hidden = false;
     var ann = $('#announce');
-    ann.innerHTML = S.announcement ? esc(S.announcement).replace(/(Free shipping[^·]*|Cash on Delivery)/gi, '<b>$1</b>') : '';
+    ann.innerHTML = S.announcement ? esc(S.announcement).replace(/(Free shipping[^·]*|Free preview[^·]*|Cash on Delivery|bKash)/gi, '<b>$1</b>') : '';
 
     var free = Number(S.freeShippingThreshold) || 0;
     $('#heroFree').textContent = free > 0 ? 'Free shipping over ' + money(free) : 'Delivery all over Bangladesh';
     $('#heroDelivery').textContent = 'Delivery in ' + S.deliveryTime;
-    $('#stepDelivery').textContent = 'Your books arrive in ' + S.deliveryTime + '. Pay the rider in cash.';
+    $('#stepDelivery').textContent = 'Your books are delivered to your door in ' + S.deliveryTime + '.';
     $('#faqTime').textContent = 'Usually ' + S.deliveryTime + ' after we confirm your order.';
     $('#faqDelivery').textContent =
       'Inside Dhaka: ' + money(S.deliveryInsideDhaka) + '. Outside Dhaka: ' + money(S.deliveryOutsideDhaka) + '.' +
       (free > 0 ? ' Orders of ' + money(free) + ' or more ship free.' : '');
-    var pay = ['Cash on delivery: pay the rider when your order arrives.'];
-    if (!S.payment.cod) pay = [];
-    if (S.payment.bkashWhatsapp && waNumber()) pay.push('bKash: choose "bKash (pay on WhatsApp)" at checkout, then message us on WhatsApp (' + S.hotline + ') and we\'ll send you our bKash number.');
+    var pay = [];
+    if (S.payment.bkashWhatsapp && waNumber()) pay.push('Pay with bKash: choose "bKash (pay on WhatsApp)" at checkout, then message us on WhatsApp (' + S.hotline + ') and we\'ll send you our bKash number.');
+    if (S.payment.cod) pay.push('Cash on delivery is also available: pay the rider when your order arrives.');
     if (S.payment.bkash) pay.push('bKash: send money to ' + S.payment.bkash + ' and enter the transaction ID at checkout.');
     if (S.payment.nagad) pay.push('Nagad: send money to ' + S.payment.nagad + ' and enter the transaction ID at checkout.');
     $('#faqPayment').textContent = pay.join(' ');
@@ -120,20 +120,45 @@
     });
   }
 
-  // Lightbox for cover pages
+  function hasPreview(p) { return !!(p.previews && p.previews.length); }
+  function slugName(s) { return String(s).replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
+
+  // Product view: cover, details, free preview downloads, other versions, add to cart
   function openLightbox(id) {
     var p = BY_ID[id];
-    if (!p || !p.image) return;
+    if (!p) return;
+    var s = SUBJ[p.subject];
     var box = $('#lightbox');
-    $('#lightboxImg').src = p.image;
-    $('#lightboxImg').alt = p.title + ' cover page';
+    var img = $('#lightboxImg'), alt = $('#lightboxAlt');
+    if (p.image) { img.src = p.image; img.alt = p.title + ' cover page'; img.hidden = false; alt.hidden = true; }
+    else { img.hidden = true; alt.hidden = false; alt.style.setProperty('--c', s.color); alt.innerHTML = textCover(p); }
+    $('#lbMeta').textContent = s.name + ' ' + s.code + ' · ' + (TYPES[p.type] || '');
     $('#lightboxTitle').textContent = p.title;
-    $('#lightboxPrice').textContent = money(p.price);
+    $('#lightboxPrice').innerHTML = money(p.price) + (p.oldPrice && p.oldPrice > p.price ? ' <s>' + money(p.oldPrice) + '</s>' : '');
+    $('#lbDesc').textContent = p.desc || '';
+    var pv = hasPreview(p) ? p.previews : [];
+    $('#lbPreviews').innerHTML = pv.length
+      ? '<h4>Free preview</h4><p class="muted small">See sample pages before you buy. No sign-up needed.</p>' +
+        pv.map(function (f) {
+          var name = 'PaperBros-' + slugName(p.title) + (pv.length > 1 ? '-' + slugName(f.label) : '') + '-Preview.pdf';
+          return '<a class="pv-file" href="' + esc(f.file) + '" download="' + esc(name) + '" target="_blank" rel="noopener">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v6m-3-3 3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+            '<span><strong>' + esc(f.label || 'Preview') + '</strong><small>PDF' + (f.size ? ' · ' + esc(f.size) : '') + '</small></span><em>Download</em></a>';
+        }).join('')
+      : '';
+    // Other versions of the same notes (e.g. handwritten vs book format)
+    var siblings = PRODUCTS.filter(function (q) { return q.id !== p.id && q.subject === p.subject && q.type === p.type && p.type === 'notes'; });
+    $('#lbVersions').innerHTML = siblings.length
+      ? '<h4>Also available</h4>' + siblings.map(function (q) {
+          return '<button class="pv-version" data-zoom="' + esc(q.id) + '"><span>' + esc(q.title) + '</span><b>' + money(q.price) + '</b></button>';
+        }).join('')
+      : '';
     var add = $('#lightboxAdd');
     add.setAttribute('data-add', p.id);
     add.disabled = !p.inStock;
-    add.textContent = p.inStock ? 'Add to cart' : 'Sold out';
+    add.textContent = p.inStock ? 'Add to cart · ' + money(p.price) : 'Sold out';
     box.hidden = false;
+    box.scrollTop = 0;
     document.body.classList.add('no-scroll');
   }
   function closeLightbox() {
@@ -221,14 +246,17 @@
       : '<button class="btn btn-primary add-btn' + (inCart ? ' added' : '') + '" data-add="' + esc(p.id) + '">' + (inCart ? 'In cart (' + inCart + ')' : 'Add to cart') + '</button>';
     var cover = p.image
       ? '<div class="cover has-img" style="--c:' + esc(s.color) + '" data-pid="' + esc(p.id) + '">' + badge +
-          '<button class="cover-btn" data-zoom="' + esc(p.id) + '" aria-label="View the ' + esc(p.title) + ' cover">' +
+          '<button class="cover-btn" data-zoom="' + esc(p.id) + '" aria-label="View ' + esc(p.title) + ' details' + (hasPreview(p) ? ' and free preview' : '') + '">' +
           '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + ' cover page" loading="lazy" data-cover="' + esc(p.id) + '"></button></div>'
-      : '<div class="cover" style="--c:' + esc(s.color) + '">' + badge + textCover(p) + '</div>';
+      : '<div class="cover" style="--c:' + esc(s.color) + '">' + badge + '<button class="cover-btn" data-zoom="' + esc(p.id) + '" aria-label="View ' + esc(p.title) + ' details">' + textCover(p) + '</button></div>';
+    var preview = hasPreview(p)
+      ? '<button class="preview-link" data-zoom="' + esc(p.id) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v6m-3-3 3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free preview (PDF)</button>'
+      : '';
     return '<article class="product' + (p.inStock ? '' : ' is-out') + '">' + cover +
       '<div class="product-body">' +
         '<p class="product-meta">' + esc(TYPES[p.type] || '') + '</p>' +
-        '<h3>' + esc(p.title) + '</h3>' +
-        '<p class="desc">' + esc(p.desc) + '</p>' +
+        '<h3><button class="title-btn" data-zoom="' + esc(p.id) + '">' + esc(p.title) + '</button></h3>' +
+        '<p class="desc">' + esc(p.desc) + '</p>' + preview +
         '<div class="product-foot"><span class="price">' + money(p.price) + old + '</span>' + btn + '</div>' +
       '</div></article>';
   }
@@ -328,8 +356,8 @@
   // ---------- checkout ----------
   function renderPayOptions() {
     var opts = [];
-    if (S.payment.cod) opts.push({ v: 'Cash on Delivery', t: 'Cash on delivery', d: 'Pay the rider when your order arrives' });
     if (S.payment.bkashWhatsapp && waNumber()) opts.push({ v: BKASH_WA, t: 'bKash (pay on WhatsApp)', d: 'Place your order, then pay by bKash through WhatsApp', wa: true });
+    if (S.payment.cod) opts.push({ v: 'Cash on Delivery', t: 'Cash on delivery', d: 'Pay the rider when your order arrives' });
     if (S.payment.bkash) opts.push({ v: 'bKash', t: 'bKash', d: 'Send money first, then enter the transaction ID', num: S.payment.bkash });
     if (S.payment.nagad) opts.push({ v: 'Nagad', t: 'Nagad', d: 'Send money first, then enter the transaction ID', num: S.payment.nagad });
     if (!opts.length) opts.push({ v: 'Cash on Delivery', t: 'Cash on delivery', d: 'Pay the rider when your order arrives' });
