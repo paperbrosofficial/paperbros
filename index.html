@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paper Bros | O Level Topical Past Papers &amp; Notes</title>
-  <meta name="description" content="Paper Bros: Cambridge O Level topical past papers (2016–2026) and revision notes with free previews. Pay easily with bKash, delivered across Bangladesh.">
+  <title>Paper Bros | O Level &amp; A Level Past Papers &amp; Notes</title>
+  <meta name="description" content="Paper Bros: Cambridge O Level topical past papers (2016–2026), A Level topical and yearly past papers (2019–2026) and revision notes with free previews. Pay easily with bKash, delivered across Bangladesh.">
   <meta name="theme-color" content="#0f1d3a">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo.jpg">
-  <meta property="og:title" content="Paper Bros | O Level Topical Past Papers & Notes">
-  <meta property="og:description" content="Topical past papers (2016–2026) and revision notes for Cambridge O Level. Free previews, pay with bKash, delivery all over Bangladesh.">
+  <meta property="og:title" content="Paper Bros | O Level & A Level Past Papers & Notes">
+  <meta property="og:description" content="O Level topical past papers and notes, plus A Level topical and yearly past papers (2019–2026, all variants). Free previews, pay with bKash, delivery all over Bangladesh.">
   <meta property="og:image" content="https://paperbrosofficial.github.io/paperbros/assets/img/logo.jpg">
   <meta property="og:url" content="https://paperbrosofficial.github.io/paperbros/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,8 @@
         <span class="brand-text">Paper<span>Bros</span></span>
       </a>
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="#catalog">Catalog</a>
+        <a href="#catalog">O Level</a>
+        <a href="#alevel">A Level</a>
         <a href="#subjects">Subjects</a>
         <a href="#why">Why us</a>
         <a href="#how">How to order</a>
@@ -56,9 +57,9 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Cambridge O Level · 2016–2026</p>
+          <p class="eyebrow">Cambridge O Level &amp; A Level</p>
           <h1>Every past paper question, <em>sorted by topic.</em></h1>
-          <p class="lead">Topical past papers and revision notes for O Level students. Practise one chapter at a time, spot the patterns examiners repeat, and walk into the exam ready.</p>
+          <p class="lead">Topical past papers and revision notes for O Level, plus topical and yearly past papers for A Level. Practise one chapter at a time, spot the patterns examiners repeat, and walk into the exam ready.</p>
           <div class="hero-cta">
             <a href="#catalog" class="btn btn-primary btn-lg">Browse catalog</a>
             <a href="#how" class="btn btn-ghost btn-lg">How ordering works</a>
@@ -81,7 +82,7 @@
       </div>
       <div class="container stats">
         <div><strong id="statSubjects">10</strong><span>Subjects</span></div>
-        <div><strong>11</strong><span>Years of papers</span></div>
+        <div><strong>O &amp; A</strong><span>Levels covered</span></div>
         <div><strong id="statProducts">29</strong><span>Products</span></div>
         <div><strong>bKash</strong><span>Easy payment</span></div>
       </div>
@@ -95,7 +96,7 @@
           <h2>Pick your subject</h2>
           <p>Choose a subject to see its topical papers, notes and formula sheets.</p>
         </div>
-        <div class="subject-grid" id="subjectGrid"></div>
+        <div id="subjectGrid"></div>
       </div>
     </section>
 
@@ -103,9 +104,9 @@
     <section class="section section-alt" id="catalog">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow">Catalog</p>
-          <h2>Papers &amp; notes</h2>
-          <p>Every topical book covers questions from 2016 to 2026, grouped chapter by chapter.</p>
+          <p class="eyebrow">O Level catalog</p>
+          <h2>O Level papers &amp; notes</h2>
+          <p>Every O Level topical book covers questions from 2016 to 2026, grouped chapter by chapter.</p>
         </div>
         <div class="catalog-tools">
           <div class="chips" id="chips" role="tablist" aria-label="Filter by category"></div>
@@ -128,6 +129,33 @@
           <p>No products match your search.</p>
           <button class="btn btn-ghost" id="clearFilters">Clear filters</button>
         </div>
+      </div>
+    </section>
+
+    <!-- A LEVEL -->
+    <section class="section section-alevel" id="alevel">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">A Level · 2019–2026 · all variants</p>
+          <h2>A Level topical &amp; yearly past papers</h2>
+          <p>Mathematics 9709, Physics 9702, Chemistry 9701 and Biology 9700. Every paper from 2019 to 2026, all variants, sorted by topic or year by year.</p>
+        </div>
+        <div class="al-explain">
+          <div class="al-card">
+            <span class="al-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h10M4 19h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <div><strong>Topical</strong><p>Every question grouped by chapter. Best for learning and revising one topic at a time.</p></div>
+          </div>
+          <div class="al-card">
+            <span class="al-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 10h16M9 3v4M15 3v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <div><strong>Yearly</strong><p>Complete papers exactly as set, year by year. Best for timed, full-paper exam practice.</p></div>
+          </div>
+        </div>
+        <div class="al-tools">
+          <div class="seg-group" id="alTypes" role="group" aria-label="Paper type"></div>
+          <div class="chips" id="alChips" role="group" aria-label="A Level subject"></div>
+        </div>
+        <p class="result-count" id="alCount"></p>
+        <div class="product-grid" id="alGrid"></div>
       </div>
     </section>
 
@@ -201,7 +229,11 @@
           </details>
           <details>
             <summary>Which years are covered?</summary>
-            <p>Our topical books include questions from 2016 to 2026.</p>
+            <p>O Level topical books include questions from 2016 to 2026. A Level topical and yearly papers cover 2019 to 2026, all variants.</p>
+          </details>
+          <details>
+            <summary>What's the difference between topical and yearly papers?</summary>
+            <p>Topical papers group every question by chapter, so you can master one topic at a time. Yearly papers keep each exam paper complete, exactly as it was set, so you can practise full papers under timed conditions.</p>
           </details>
           <details>
             <summary>How much is delivery?</summary>
