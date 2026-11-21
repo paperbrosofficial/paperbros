@@ -228,6 +228,31 @@ p { margin: 0 0 1em; }
 .subject strong { display: block; color: var(--ink); font-size: .98rem; line-height: 1.25; }
 .subject small { color: var(--muted); font-weight: 600; }
 
+.subject-group { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; font-size: 1.05rem; margin: 26px 0 12px; }
+.subject-group:first-child { margin-top: 0; }
+.subject-group small { font-size: .85rem; font-weight: 600; color: var(--muted); }
+
+/* ---------- A Level section ---------- */
+.section-alevel { background: #eef2fa; border-top: 1px solid #dbe2f0; border-bottom: 1px solid #dbe2f0; }
+.section-alevel .eyebrow { background: rgba(30, 58, 138, .1); color: #1e3a8a; }
+.al-explain { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+.al-card { display: flex; gap: 14px; align-items: flex-start; background: #fff; border: 1px solid #dbe2f0; border-radius: var(--radius); padding: 16px 18px; }
+.al-card strong { color: var(--ink); }
+.al-card p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+.al-ico { width: 40px; height: 40px; border-radius: 10px; background: #1e3a8a; color: #fff; display: grid; place-items: center; flex: none; }
+.al-ico svg { width: 22px; height: 22px; }
+.al-tools { display: flex; flex-direction: column; gap: 12px; margin-bottom: 6px; }
+.seg-group { display: inline-flex; align-self: flex-start; background: #fff; border: 1.5px solid #c9d3e8; border-radius: 999px; padding: 4px; gap: 4px; }
+.seg { border: 0; background: none; padding: .5rem 1.05rem; border-radius: 999px; font-weight: 700; font-size: .9rem; color: var(--ink-soft); cursor: pointer; }
+.seg:hover { background: #eef2fa; }
+.seg.active { background: #1e3a8a; color: #fff; }
+.seg .n { opacity: .65; font-weight: 600; margin-left: .3rem; }
+@media (max-width: 640px) {
+  .al-explain { grid-template-columns: 1fr; }
+  .seg-group { align-self: stretch; }
+  .seg { flex: 1; padding: .5rem .4rem; }
+}
+
 /* ---------- Catalog ---------- */
 .catalog-tools { display: flex; flex-direction: column; gap: 14px; margin-bottom: 10px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
