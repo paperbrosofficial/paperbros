@@ -356,7 +356,7 @@
       '<form id="productForm">' +
       '<div class="field"><label>Title *</label><input name="title" required value="' + esc(p.title) + '" placeholder="e.g. Physics P1"></div>' +
       '<div class="grid-2">' +
-        '<div class="field"><label>Subject *</label><select name="subject" required>' + draft.subjects.map(function (s) { return '<option value="' + esc(s.id) + '"' + (s.id === p.subject ? ' selected' : '') + '>' + esc(s.name) + ' (' + esc(s.code) + ')</option>'; }).join('') + '</select></div>' +
+        '<div class="field"><label>Subject *</label><select name="subject" required>' + draft.subjects.map(function (s) { return '<option value="' + esc(s.id) + '"' + (s.id === p.subject ? ' selected' : '') + '>' + (s.level === 'A' ? 'A Level ' : 'O Level ') + esc(s.name) + ' (' + esc(s.code) + ')</option>'; }).join('') + '</select></div>' +
         '<div class="field"><label>Type *</label><select name="type">' + Object.keys(TYPES).map(function (k) { return '<option value="' + k + '"' + (k === p.type ? ' selected' : '') + '>' + esc(TYPES[k]) + '</option>'; }).join('') + '</select></div>' +
         '<div class="field"><label>Price (৳) *</label><input name="price" type="number" min="0" step="1" required value="' + esc(p.price) + '"></div>' +
         '<div class="field"><label>Original price (৳, shows as crossed out)</label><input name="oldPrice" type="number" min="0" step="1" value="' + esc(p.oldPrice || '') + '" placeholder="Optional"></div>' +
@@ -409,11 +409,11 @@
   // ---------- subjects ----------
   function renderSubjects() {
     if (!draft.subjects.length) { $('#subjectsTable').innerHTML = '<div class="empty-row">No subjects yet.</div>'; return; }
-    $('#subjectsTable').innerHTML = '<table><thead><tr><th>Colour</th><th>Subject</th><th>Code</th><th>Category</th><th class="num">Products</th><th></th></tr></thead><tbody>' +
+    $('#subjectsTable').innerHTML = '<table><thead><tr><th>Colour</th><th>Subject</th><th>Level</th><th>Code</th><th>Category</th><th class="num">Products</th><th></th></tr></thead><tbody>' +
       draft.subjects.map(function (s, i) {
         var n = draft.products.filter(function (p) { return p.subject === s.id; }).length;
         return '<tr><td><span class="swatch" style="--c:' + esc(s.color) + '"></span></td>' +
-          '<td><strong>' + esc(s.name) + '</strong></td><td>' + esc(s.code) + '</td><td>' + esc(CATS[s.category] || s.category) + '</td>' +
+          '<td><strong>' + esc(s.name) + '</strong></td><td>' + (s.level === 'A' ? 'A Level' : 'O Level') + '</td><td>' + esc(s.code) + '</td><td>' + esc(CATS[s.category] || s.category) + '</td>' +
           '<td class="num">' + n + '</td>' +
           '<td class="actions">' +
             '<button class="icon-act" data-move-subject="' + i + '" data-dir="-1"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move up">↑</button>' +
@@ -453,6 +453,7 @@
         '<div class="field"><label>Syllabus code *</label><input name="code" required value="' + esc(s.code) + '" placeholder="e.g. 2058"></div>' +
         '<div class="field"><label>Category</label><select name="category">' + Object.keys(CATS).map(function (k) { return '<option value="' + k + '"' + (k === s.category ? ' selected' : '') + '>' + esc(CATS[k]) + '</option>'; }).join('') + '</select></div>' +
         '<div class="field"><label>Cover colour</label><input name="color" type="color" value="' + esc(s.color) + '"></div>' +
+        '<div class="field"><label>Level</label><select name="level"><option value="O"' + (s.level !== 'A' ? ' selected' : '') + '>O Level</option><option value="A"' + (s.level === 'A' ? ' selected' : '') + '>A Level</option></select></div>' +
       '</div>' +
       '<div class="modal-actions"><button type="button" class="btn btn-ghost" data-close>Cancel</button><button class="btn btn-primary" type="submit">' + (isNew ? 'Add subject' : 'Save changes') + '</button></div></form>'
     );
@@ -460,6 +461,7 @@
       e.preventDefault();
       var f = e.target.elements;
       var data = { name: f.name.value.trim(), code: f.code.value.trim(), category: f.category.value, color: f.color.value };
+      if (f.level.value === 'A') data.level = 'A'; else delete s.level;
       if (!data.name || !data.code) { toast('Name and code are required', true); return; }
       if (isNew) {
         var base = slug(data.name), id = base, n = 2;

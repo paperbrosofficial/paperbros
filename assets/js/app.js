@@ -23,6 +23,9 @@
   var SUBJ = {};
   DATA.subjects.forEach(function (s) { SUBJ[s.id] = s; });
   var PRODUCTS = DATA.products.filter(function (p) { return SUBJ[p.subject]; });
+  function isALevel(p) { return (SUBJ[p.subject] || {}).level === 'A'; }
+  var O_PRODUCTS = PRODUCTS.filter(function (p) { return !isALevel(p); });
+  var A_PRODUCTS = PRODUCTS.filter(isALevel);
   var BY_ID = {};
   PRODUCTS.forEach(function (p) { BY_ID[p.id] = p; });
 
@@ -87,7 +90,8 @@
       '<li>' + esc(S.location) + '</li>';
     $('#footerCats').innerHTML = Object.keys(CATS).map(function (k) {
       return '<li><a href="#catalog" data-cat="' + k + '">' + esc(CATS[k]) + '</a></li>';
-    }).join('') + '<li><a href="#catalog" data-cat="notes">Revision Notes</a></li>';
+    }).join('') + '<li><a href="#catalog" data-cat="notes">Revision Notes</a></li>' +
+      (DATA.subjects.some(function (s) { return s.level === 'A'; }) ? '<li><a href="#alevel">A Level Past Papers</a></li>' : '');
 
     var soc = [];
     if (S.instagram) soc.push('<a href="' + esc(S.instagram) + '" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>');
@@ -132,7 +136,7 @@
     var img = $('#lightboxImg'), alt = $('#lightboxAlt');
     if (p.image) { img.src = p.image; img.alt = p.title + ' cover page'; img.hidden = false; alt.hidden = true; }
     else { img.hidden = true; alt.hidden = false; alt.style.setProperty('--c', s.color); alt.innerHTML = textCover(p); }
-    $('#lbMeta').textContent = s.name + ' ' + s.code + ' · ' + (TYPES[p.type] || '');
+    $('#lbMeta').textContent = (s.level === 'A' ? 'A Level ' : 'O Level ') + s.name + ' ' + s.code + ' · ' + (TYPES[p.type] || '');
     $('#lightboxTitle').textContent = p.title;
     $('#lightboxPrice').innerHTML = money(p.price) + (p.oldPrice && p.oldPrice > p.price ? ' <s>' + money(p.oldPrice) + '</s>' : '');
     $('#lbDesc').textContent = p.desc || '';
@@ -147,7 +151,13 @@
         }).join('')
       : '';
     // Other versions of the same notes (e.g. handwritten vs book format)
-    var siblings = PRODUCTS.filter(function (q) { return q.id !== p.id && q.subject === p.subject && q.type === p.type && p.type === 'notes'; });
+    // Notes: other versions. A Level papers: the topical <-> yearly book for the same paper.
+    var siblings = PRODUCTS.filter(function (q) {
+      if (q.id === p.id || q.subject !== p.subject) return false;
+      if (p.type === 'notes') return q.type === 'notes';
+      if (isALevel(p) && (p.type === 'topical' || p.type === 'yearly')) return q.paper === p.paper && q.type !== p.type;
+      return false;
+    });
     $('#lbVersions').innerHTML = siblings.length
       ? '<h4>Also available</h4>' + siblings.map(function (q) {
           return '<button class="pv-version" data-zoom="' + esc(q.id) + '"><span>' + esc(q.title) + '</span><b>' + money(q.price) + '</b></button>';
@@ -181,12 +191,41 @@
 
   // ---------- subjects ----------
   function renderSubjects() {
-    $('#subjectGrid').innerHTML = DATA.subjects.map(function (s) {
+    function card(s) {
       var n = PRODUCTS.filter(function (p) { return p.subject === s.id; }).length;
       return '<button class="subject" data-subject="' + esc(s.id) + '" style="--c:' + esc(s.color) + '">' +
         '<span class="subject-code">' + esc(s.code) + '</span>' +
         '<span><strong>' + esc(s.name) + '</strong><small>' + n + ' item' + (n === 1 ? '' : 's') + '</small></span></button>';
+    }
+    var o = DATA.subjects.filter(function (s) { return s.level !== 'A'; });
+    var a = DATA.subjects.filter(function (s) { return s.level === 'A'; });
+    $('#subjectGrid').innerHTML =
+      (a.length ? '<h3 class="subject-group">O Level <small>Papers 2016–2026 · notes · formula sheets</small></h3>' : '') +
+      '<div class="subject-grid">' + o.map(card).join('') + '</div>' +
+      (a.length ? '<h3 class="subject-group">A Level <small>Topical &amp; yearly papers 2019–2026</small></h3><div class="subject-grid">' + a.map(card).join('') + '</div>' : '');
+  }
+
+  // ---------- A Level section ----------
+  var alState = { type: 'all', subject: '' };
+  function renderALevel() {
+    if (!$('#alGrid')) return;
+    var types = [['all', 'All papers'], ['topical', 'Topical'], ['yearly', 'Yearly']];
+    $('#alTypes').innerHTML = types.map(function (t) {
+      var n = A_PRODUCTS.filter(function (p) { return t[0] === 'all' || p.type === t[0]; }).length;
+      var on = alState.type === t[0];
+      return '<button class="seg' + (on ? ' active' : '') + '" data-al-type="' + t[0] + '" aria-pressed="' + on + '">' + t[1] + '<span class="n">' + n + '</span></button>';
     }).join('');
+    var subs = DATA.subjects.filter(function (s) { return s.level === 'A'; });
+    $('#alChips').innerHTML = [['', 'All subjects']].concat(subs.map(function (s) { return [s.id, s.name + ' ' + s.code]; })).map(function (d) {
+      var on = alState.subject === d[0];
+      return '<button class="chip' + (on ? ' active' : '') + '" data-al-subject="' + esc(d[0]) + '" aria-pressed="' + on + '">' + esc(d[1]) + '</button>';
+    }).join('');
+    var list = A_PRODUCTS.filter(function (p) {
+      return (alState.type === 'all' || p.type === alState.type) && (!alState.subject || p.subject === alState.subject);
+    });
+    $('#alGrid').innerHTML = list.map(productCard).join('');
+    $('#alCount').textContent = list.length + ' product' + (list.length === 1 ? '' : 's') +
+      (alState.subject ? ' in A Level ' + SUBJ[alState.subject].name : ' across all A Level subjects');
   }
 
   // ---------- catalog ----------
@@ -195,7 +234,7 @@
   function renderChips() {
     var defs = [['all', 'All items']].concat(Object.keys(CATS).map(function (k) { return [k, CATS[k]]; })).concat([['notes', 'Revision Notes']]);
     $('#chips').innerHTML = defs.map(function (d) {
-      var n = PRODUCTS.filter(function (p) { return matchesCat(p, d[0]); }).length;
+      var n = O_PRODUCTS.filter(function (p) { return matchesCat(p, d[0]); }).length;
       if (!n && d[0] !== 'all') return '';
       return '<button class="chip' + (state.cat === d[0] ? ' active' : '') + '" role="tab" aria-selected="' + (state.cat === d[0]) + '" data-cat="' + d[0] + '">' +
         esc(d[1]) + '<span class="n">' + n + '</span></button>';
@@ -210,7 +249,7 @@
 
   function filtered() {
     var q = state.q.trim().toLowerCase();
-    var list = PRODUCTS.filter(function (p) {
+    var list = O_PRODUCTS.filter(function (p) {
       if (!matchesCat(p, state.cat)) return false;
       if (state.subject && p.subject !== state.subject) return false;
       if (!q) return true;
@@ -270,6 +309,7 @@
     $('#resultCount').innerHTML = label;
     var cs = $('#clearSubject');
     if (cs) cs.addEventListener('click', function (e) { e.preventDefault(); state.subject = ''; renderProducts(); });
+    renderALevel();
   }
 
   function setCategory(cat) {
@@ -684,7 +724,17 @@
       if (rem) { delete cart[rem.getAttribute('data-remove')]; saveCart(); return; }
       var chip = t.closest('.chip[data-cat], .footer-links a[data-cat]');
       if (chip) { setCategory(chip.getAttribute('data-cat')); return; }
+      var alType = t.closest('[data-al-type]');
+      if (alType) { alState.type = alType.getAttribute('data-al-type'); renderALevel(); return; }
+      var alSub = t.closest('[data-al-subject]');
+      if (alSub) { alState.subject = alSub.getAttribute('data-al-subject'); renderALevel(); return; }
       var subj = t.closest('[data-subject]');
+      if (subj && SUBJ[subj.getAttribute('data-subject')] && SUBJ[subj.getAttribute('data-subject')].level === 'A') {
+        alState = { type: 'all', subject: subj.getAttribute('data-subject') };
+        renderALevel();
+        $('#alevel').scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
       if (subj) {
         state.cat = 'all'; state.q = ''; $('#search').value = '';
         state.subject = subj.getAttribute('data-subject');
